@@ -26,6 +26,13 @@ class RegistrationFormType extends AbstractType
                 'widget' => "single_text",
             ])
             ->add('email')
+            ->add('inscription_newsletter', CheckboxType::class, [
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'Souhaitez-vous souscrire à notre newsletter?',
+                    ]),
+                ],
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
