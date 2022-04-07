@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -22,8 +23,8 @@ class UserType extends AbstractType
         $builder
         ->add('prenom')
         ->add('nom')
-        ->add('plainPassword',PasswordType::class,[
-            'mapped' => false,
+        ->add('password',PasswordType::class,[
+            
             'constraints' => [
                 new NotBlank([
                     'message' => 'Please enter a password',
@@ -42,24 +43,30 @@ class UserType extends AbstractType
         ->add('email')
             ->add('address' , TextareaType::class, [
                 'label_format' => 'Adresse de Livraison',
-                // 'help' => 'Veuillez renseigner votre adresse pour la livraison.',
+                
             ])
-            ->add('zip_code', null, [
-                // 'help' => 'Veuillez renseigner votre code postal pour la livraison.',
-            ])
-            ->add('city', null, [
-                // 'help' => 'Veuillez renseigner votre ville pour la livraison.',
-            ])
+            ->add('zip_code', null )
+            ->add('city', null )
             ->add('phone', TextareaType::class, [
                 'constraints' => [
                     new Regex([
                         'pattern' => "/^[0-9\-\(\)\/\+\s]*$/",
-                        // 'message' => "Votre numéro de téléphone n'est pas valide.",
                         
                     ])
                 ]
             ])
-        ;
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Administrateur' => 'ROLE_ADMIN',
+                    'Membre' => 'ROLE_USER',
+                ],
+                'multiple' => true,
+                'expanded' => true
+            ])
+            ->add('inscription_newsletter', CheckboxType::class, [
+                'required' => false,
+                ])
+                ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

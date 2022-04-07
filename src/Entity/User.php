@@ -36,9 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'date', nullable: true)]
     private $date_naissance;
 
-    #[ORM\Column(type: 'string', length: 30, nullable: true)]
-    private $inscription_newsletter;
-
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $address;
 
@@ -50,6 +47,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $phone;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $inscription_newsletter;
 
     public function getId(): ?int
     {
@@ -157,17 +157,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getInscriptionNewsletter(): ?string
-    {
-        return $this->inscription_newsletter;
-    }
-
-    public function setInscriptionNewsletter(?string $inscription_newsletter): self
-    {
-        $this->inscription_newsletter = $inscription_newsletter;
-
-        return $this;
-    }
 
     public function getAddress(): ?string
     {
@@ -213,6 +202,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhone(?int $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getInscriptionNewsletter(): ?bool
+    {
+        return $this->inscription_newsletter;
+    }
+
+    public function setInscriptionNewsletter(?bool $inscription_newsletter): self
+    {
+        $this->inscription_newsletter = $inscription_newsletter;
 
         return $this;
     }

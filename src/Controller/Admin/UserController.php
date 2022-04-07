@@ -54,7 +54,14 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            if($user->getInscriptionNewsletter() == null )
+            {
+                $user->setInscriptionNewsletter(0);
+            }
+            
             $userRepository->add($user);
+
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
