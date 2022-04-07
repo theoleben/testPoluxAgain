@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonnements{% endblock %}
+
+{% block body %}
+
+{% for sub in subscriptions %}
+
+<div>
+    <ul>
+        <li>Title : {{ sub.title }} </li>
+        <li>Games number : {{ sub.gamesNumber }} </li>
+        <li>Price : {{ sub.price }} </li>
+        <li>New duration : {{ sub.newDuration }} </li>
+        <li>Shipping cost : {{ sub.shippingCost }} </li>
+        <li>Description : {{ sub.description }} </li>
+    </ul>
+</div>
+
+<hr>
+    
+{% endfor %}
+
+{% endblock %}
