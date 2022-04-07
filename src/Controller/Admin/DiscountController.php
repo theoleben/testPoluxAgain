@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-// #[Route('/admin/discount')]
+#[Route('/admin/discount')]
 class DiscountController extends AbstractController
 {
     #[Route('/', name: 'app_admin_discount_index', methods: ['GET'])]
