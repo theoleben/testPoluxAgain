@@ -24,6 +24,12 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($user->getInscriptionNewsletter() == null )
+            {
+                $user->setInscriptionNewsletter(0);
+            }
+            
             // encode the plain password
             $user->setPassword(
             $userPasswordHasher->hashPassword(

@@ -20,34 +20,35 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $user = $options["data"];
         $builder
         ->add('prenom')
         ->add('nom')
         ->add('password',PasswordType::class,[
             
-            'constraints' => [
-                new NotBlank([
-                    'message' => 'Please enter a password',
-                ]),
-                new Length([
-                        'min' => 4,
-                        'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères.',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
+            // 'constraints' => [
+            //     new NotBlank([
+            //         'message' => 'Please enter a password',
+            //     ]),
+            //     new Length([
+            //             'min' => 4,
+            //             'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères.',
+            //             // max length allowed by Symfony for security reasons
+            //             'max' => 4096,
+            //         ]),
+            //     ],
         ] )
         ->add('date_naissance', BirthdayType::class, [
             'widget' => "single_text",
         ])
         ->add('email')
-            ->add('address' , TextareaType::class, [
+        ->add('address' , TextareaType::class, [
                 'label_format' => 'Adresse de Livraison',
                 
             ])
-            ->add('zip_code', null )
-            ->add('city', null )
-            ->add('phone', TextareaType::class, [
+        ->add('zip_code', null )
+        ->add('city', null )
+        ->add('phone', TextareaType::class, [
                 'constraints' => [
                     new Regex([
                         'pattern' => "/^[0-9\-\(\)\/\+\s]*$/",

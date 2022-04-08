@@ -22,15 +22,16 @@ class RegistrationFormType extends AbstractType
             ->add('prenom')
             ->add('nom')
             ->add('dateNaissance', BirthdayType::class, [
-                'mapped' => false,
+                // 'mapped' => false,
                 'widget' => "single_text",
             ])
             ->add('email')
             ->add('inscription_newsletter', CheckboxType::class, [
+                'required' => false,
                 'constraints' => [
-                    new IsTrue([
-                        'message' => 'Souhaitez-vous souscrire à notre newsletter?',
-                    ]),
+                    // new IsTrue([
+                    //     'message' => 'Souhaitez-vous souscrire à notre newsletter?',
+                    // ]),
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
@@ -50,19 +51,11 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Please enter a password',
                     ]),
-                    // new Length([
-                    //     'min' => 6,
-                    //     'minMessage' => 'Your password should be at least {{ limit }} characters',
-                    //     // max length allowed by Symfony for security reasons
-                    //     'max' => 4096,
-                    // ]),
-                    new Regex([
-                        'pattern' => "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{6,15})$/",
-                        'message' => "Le mot de passe n'est pas valide.",
+                    // new Regex([
+                    //     'pattern' => "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{6,15})$/",
+                    //     'message' => "Le mot de passe n'est pas valide.",
                         
-                    ])
-                    //Regex: ^ début de la chaine de caractères, $ fin de la chaine \d = n'importe quel chiffre, entre crochet ce sont les caractères spéciaux , \w n'importe quel caractère dans un mot, {8,15} la longeur du mdp doit être compris entre 8 et 15 caractères, ?=. ce groupe de caractères peut être n'importe où ds le mdp
-                    // pour tester regex: regex101.com
+                    // ])
                 ],
                 'label' => 'Mot de Passe',
                 'help' => "Votre mot de passe doit comporter au moins 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial (-+!*$@%_), et entre 6 et 15 caractères."
