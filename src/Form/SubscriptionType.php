@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Discount;
 use App\Entity\Subscription;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SubscriptionType extends AbstractType
@@ -18,6 +20,11 @@ class SubscriptionType extends AbstractType
             ->add('new_duration')
             ->add('shipping_cost')
             ->add('description')
+            ->add('discount', EntityType::class, [
+                'class' => Discount::class,
+                'choice_label' => 'type', // On choisit le champ qui sera affiché dans le select
+                'placeholder' => ""
+            ] )
         ;
     }
 
