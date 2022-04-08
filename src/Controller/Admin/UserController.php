@@ -32,7 +32,13 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // if( !in_array("ROLE_ADMIN", $user->getRoles()))
+            // if( in_array("ROLE_ADMIN", $user->getRoles()))
+            // {
+            //     $newUser = new User;
+            //     $newUser->setNom($user->getNom());
+            //     $newUser->setEmail($form->get('email')->getData());
+            // }
+            // else
             // {
             //     $user->setRoles(['ROLE_ADMIN']);
             // }
