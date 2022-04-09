@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau membre{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau membre</h1>
+    {# {% for user in users %}
+    {{ form_start(UserType) }}
+    {{ form_row(UserType.prenom, {attr: { class: "formulaire_inscription" }}) }}
+    {{ form_row(UserType.nom) }}
+    {{ form_row(UserType.dateNaissance) }}
+    {{ form_row(UserType.email) }}
+    {{ form_row(UserType.plainPassword, {
+        label: 'Password'
+    }) }}
+    {% endfor %} #}
+    {# <button type="submit" class="btn">Register</button>    
+{{ form_end(UserType) }} #}
+
+
+     {# {% for users in user %}
+    {% if app.user == UserType.prenom && app.user == UserType.nom %} 
+    {{ include('admin/user/_form.html.twig') }}
+    {% endif %}
+    {% endfor %} #}
+
+    {{ include('admin/user/_form.html.twig') }}
+    <a href="{{ path('app_admin_user_index') }}">back to list</a>
+{% endblock %}

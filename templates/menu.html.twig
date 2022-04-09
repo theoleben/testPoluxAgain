@@ -1,19 +1,33 @@
 <nav>
     <ul>
-        <li>
-            <a href="{{ path('app_admin_discount_index') }}">Liste des discount</a>
-        </li>
-        <li>
-            <a href="{{ path('app_admin_discount_new') }}">Ajouter un discount</a>
-        </li>
+        {% if app.user %}
+        <li >Accueil</li>
+        <li>Nos jeux</li>
+        <li>Best-Sellers</li>
+        <li>Abonnements</li>
+        <li>Blog</li>
+        <li>Contact</li>
+        <li>Mon espace</li>
+        {% endif %}
+
+        <li> <a href="{{ path('app_register') }}">Inscription</a></li>
+        <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+
+        {% if is_granted("ROLE_ADMIN") %}
+        <li><a href="{{ path('app_admin_user_index') }}">GESTION ADMIN</a></li>
+        {% endif %}
+    </ul>
+    
+    <ul>
+        <li><a href="{{ path('app_admin_discount_index') }}">Liste des discount</a></li>
+        <li><a href="{{ path('app_admin_discount_new') }}">Ajouter un discount</a></li>
     </ul>
     
     <ul>
         <li><a href="{{ path('app_admin_subscription_index') }}">Liste des abonnements</a></li>
-        <li>
-            <a href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a>
-        </li>
+        <li><a href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a></li>
     </ul>
-
+    
     <a href="{{ path('app_display_subscription') }}">Abonnements</a>
 </nav>
