@@ -22,6 +22,9 @@ class Discount
     #[ORM\Column(type: 'text')]
     private $description;
 
+    #[ORM\OneToOne(mappedBy: 'discount', targetEntity: Subscription::class, cascade: ['persist', 'remove'])]
+    private $subscription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,28 @@ class Discount
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSubscription(): ?Subscription
+    {
+        return $this->subscription;
+    }
+
+    public function setSubscription(?Subscription $subscription): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($subscription === null && $this->subscription !== null) {
+            $this->subscription->setDiscount(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($subscription !== null && $subscription->getDiscount() !== $this) {
+            $subscription->setDiscount($this);
+        }
+
+        $this->subscription = $subscription;
 
         return $this;
     }
