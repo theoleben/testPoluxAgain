@@ -6,3 +6,9 @@ body {
     color : purple;
 } */
 
+nav, .container_admin
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+

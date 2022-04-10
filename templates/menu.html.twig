@@ -1,33 +1,48 @@
 <nav>
-    <ul>
-        {% if app.user %}
-        <li >Accueil</li>
-        <li>Nos jeux</li>
-        <li>Best-Sellers</li>
-        <li>Abonnements</li>
-        <li>Blog</li>
-        <li>Contact</li>
-        <li>Mon espace</li>
-        {% endif %}
+    <div>
+        <span>Affichage client :</span>
+        <ul>
+            {% if app.user %}
+            <li >Accueil</li>
+            <li>Nos jeux</li>
+            <li>Best-Sellers</li>
+            <li>Abonnements</li>
+            <li>Blog</li>
+            <li>Contact</li>
+            <li>Mon espace</li>
+            {% endif %}
+            <li> <a href="{{ path('app_register') }}">Inscription</a></li>
+            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+            <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
 
-        <li> <a href="{{ path('app_register') }}">Inscription</a></li>
-        <li><a href="{{ path('app_login') }}">Se connecter</a></li>
-        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+            {% if is_granted("ROLE_ADMIN") %}
+            <li><a href="{{ path('app_admin_user_index') }}">GESTION ADMIN</a></li>
+            {% endif %}
+        </ul>
 
-        {% if is_granted("ROLE_ADMIN") %}
-        <li><a href="{{ path('app_admin_user_index') }}">GESTION ADMIN</a></li>
-        {% endif %}
-    </ul>
+        <ul>
+            <li><a href="{{ path('app_display_subscription') }}">Abonnements</a></li>
+        </ul>
+    </div>
     
-    <ul>
-        <li><a href="{{ path('app_admin_discount_index') }}">Liste des discount</a></li>
-        <li><a href="{{ path('app_admin_discount_new') }}">Ajouter un discount</a></li>
-    </ul>
-    
-    <ul>
-        <li><a href="{{ path('app_admin_subscription_index') }}">Liste des abonnements</a></li>
-        <li><a href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a></li>
-    </ul>
-    
-    <a href="{{ path('app_display_subscription') }}">Abonnements</a>
+    <div>
+        <span>Back office :</span>
+        <div class="container_admin">
+            <ul>
+                <li><a href="{{ path('app_admin_category_index') }}">Liste des catégories</a></li>
+                <li><a href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a></li>
+                <li><a href="{{ path('app_admin_game_index') }}">Liste des jeux</a></li>
+                <li><a href="{{ path('app_admin_game_new') }}">Ajouter un jeu</a></li>
+                <li><a href="{{ path('app_admin_picture_index') }}">Liste des images</a></li>
+                <li><a href="{{ path('app_admin_picture_new') }}">Ajouter une image</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="{{ path('app_admin_discount_index') }}">Liste des discount</a></li>
+                <li><a href="{{ path('app_admin_discount_new') }}">Ajouter un discount</a></li>
+                <li><a href="{{ path('app_admin_subscription_index') }}">Liste des abonnements</a></li>
+                <li><a href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
