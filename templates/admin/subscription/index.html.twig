@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subscription index{% endblock %}
+{% block title %}Index des abonnements{% endblock %}
 
 {% block body %}
-    <h1>Subscription index</h1>
+    <h1>Index des abonnements</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Games_number</th>
-                <th>Price</th>
-                <th>New_duration</th>
-                <th>Shipping_cost</th>
+                <th>Titre</th>
+                <th>Numéro de jeu</th>
+                <th>Prix</th>
+                <th>Nouvelle validité de l'abonnement</th>
+                <th>Frais de livraison</th>
                 <th>Description</th>
                 <th>Discount</th>
                 <th>actions</th>
@@ -31,17 +31,17 @@
                 <td>{{ subscription.description }}</td>
                 <td>{{ subscription.discount ? subscription.discount.type : "Pas de discount" }}</td>
                 <td>
-                    <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}">show</a>
-                    <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}">Montrer</a>
+                    <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_subscription_new') }}">Create new</a>
+    <a href="{{ path('app_admin_subscription_new') }}">Créer un nouvel abonnement</a>
 {% endblock %}
