@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des jeux{% endblock %}
+
+{% block body %}
+    <h1>Liste des jeux</h1>
+
+    <div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Prix de location</th>
+                <th>Prix de vente</th>
+                <th>Categorie</th>
+                <th>Age</th>
+                <th>Nombre de joueurs</th>
+                <th>Temps e jeux</th>
+                <th>Materiaux</th>
+                <th>Description</th>
+                <th>Stock</th>
+                <th>Note</th>
+                <th>actions</th>
+                <th>photos des jeux</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+            <tr>
+                <td>{{ game.id }}</td>
+                <td>{{ game.title }}</td>
+                <td>{{ game.rentalPrice }}</td>
+                <td>{{ game.sellingPrice }}</td>
+                {# Ici, on créer une boucle avec catégory pour inclure la catégory. Et comme catégorie est un tableau, il faut donc faire une boucle. 
+                Pour la Variable cat qui se toruve dans la class Category de la class Game on fait appelle a elle via car.name   name correspond a la catégorie de la table Category #}
+                {% for cate in game.category %}
+                    <td>{{cate.name}}</td>
+                {% endfor %}
+                <td>{{ game.age }}</td>
+                <td>{{ game.nbPlayers }}</td>
+                <td>{{ game.playTime }}</td>
+                <td>{{ game.material }}</td>
+                <td>{{ game.description }}</td>
+                <td>{{ game.stock }}</td>
+                <td>{{ game.grade }}</td>
+                
+                <td>
+                    <a href="{{ path('app_admin_game_show', {'id': game.id}) }}"><button class="btn">{{ button_label|default('Voir le jeu') }}</button></a><br>
+                    <a href="{{ path('app_admin_game_edit', {'id': game.id}) }}"><button class="btn">{{ button_label|default('Modifier') }}</button></a>
+                    {{ include('admin/game/_delete_form.html.twig') }}
+                </td>
+                {% for picture in game.picture %}
+                    <td><img src="{{ '/images/' ~ picture.name }}" alt="{{picture.name}}" height="90px"></td>
+                <td>
+                {% endfor %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">aucun jeu trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <a href="{{ path('app_admin_game_new') }}"><button class="btn">{{ button_label|default('Ajouter un jeu') }}</button></a>
+{% endblock %}

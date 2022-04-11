@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subscription index{% endblock %}
+
+{% block body %}
+    <h1>Subscription index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Games_number</th>
+                <th>Price</th>
+                <th>New_duration</th>
+                <th>Shipping_cost</th>
+                <th>Description</th>
+                <th>Discount</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subscription in subscriptions %}
+            <tr>
+                <td>{{ subscription.id }}</td>
+                <td>{{ subscription.title }}</td>
+                <td>{{ subscription.gamesNumber }}</td>
+                <td>{{ subscription.price }}</td>
+                <td>{{ subscription.newDuration }}</td>
+                <td>{{ subscription.shippingCost }}</td>
+                <td>{{ subscription.description }}</td>
+                <td>{{ subscription.discount ? subscription.discount.type : "Pas de discount" }}</td>
+                <td>
+                    <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}">show</a>
+                    <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_subscription_new') }}">Create new</a>
+{% endblock %}
