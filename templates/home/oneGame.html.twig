@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage des jeux{% endblock %}
+
+{% block body %}
+
+<div>
+    <ul>
+        <li>Nom du jeu : {{ game.title }} </li>
+        <li>Photos du jeu : 
+            {% for picture in game.picture %}
+                <img src="{{ '/images/' ~ picture.name }}" alt="{{ picture.name }}" height="90px">
+            {% endfor %}
+        </li>
+        <li>Prix de location : {{ game.rentalPrice }}</li>
+        <li>Prix de vente : {{ game.sellingPrice }}</li>
+        {% for cate in game.category %}
+            <li>Catégorie : {{cate.name}}</li>
+        {% endfor %}
+        <li>Tranche d'âge : {{ game.age }}</li>
+        <li>Nombre de joueurs : {{ game.nbPlayers }}</li>
+        <li>Temps d'une partie : {{ game.playTime }}</li>
+        <li>Composition du jeu : {{ game.material }}</li>
+        <li>Description du jeu : {{ game.description }}</li>
+        <li>Stock restant : {{ game.stock }}</li>
+        <li><button name="wish">Ce jeu m'intéresse</button></li>
+    </ul>
+</div>
+
+<hr>
+
+{% endblock %}
