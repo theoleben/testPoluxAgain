@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\GameRepository;
 use App\Repository\SubscriptionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +26,26 @@ class HomeController extends AbstractController
 
         return $this->render('home/displaySubscription.html.twig', [
             'subscriptions' => $subscriptions
+        ]);
+    }
+
+    #[Route('/displayGame', name: 'app_display_game')]
+    public function displayGame( GameRepository $gameRepository ) : Response
+    {
+        $games = $gameRepository->findAll();
+
+        return $this->render('home/displayGame.html.twig', [
+            'games' => $games
+        ]);
+    }
+
+    #[Route('/displayGame/{id}', name: 'app_onegame', methods: ['GET'])]
+    public function displayOneGame($id, GameRepository $gameRepository ) : Response
+    {
+        $game = $gameRepository->find($id);
+
+        return $this->render('home/oneGame.html.twig', [
+            'game' => $game
         ]);
     }
 }

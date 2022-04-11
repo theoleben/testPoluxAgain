@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Game;
-use App\Form\GameType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
@@ -28,8 +27,7 @@ class GameType extends AbstractType
                 ]),
                 new NotBlank([ 'message' => 'Ce champ ne peut être vide'])
             ]
-        ])
-        // integertype car c'est un nombre, on l'oblige (le forcer) d'afficher des chiffres. 
+        ]) 
             ->add('rental_price', IntegerType::class, [
                 'label' => 'Prix du jeu à la location',
                 'constraints' => [
