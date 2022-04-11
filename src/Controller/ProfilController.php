@@ -5,11 +5,12 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\User1Type;
 use App\Repository\UserRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface as Hasher;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 #[Route('/profil')]
 class ProfilController extends AbstractController
@@ -48,11 +49,13 @@ class ProfilController extends AbstractController
     //     ]);
     // }
 
-    #[Route('/{id}/edit', name: 'app_profil_edit', methods: ['GET', 'POST'], requirements: ['id'=>'[0-9]+'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository, Hasher $hasher): Response
+    #[Route('/edit', name: 'app_profil_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, UserRepository $userRepository, Hasher $hasher): Response
     {
+        $user= $this->getUser(); //recuperation des infos du user connecté
         $form = $this->createForm(User1Type::class, $user);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -74,13 +77,29 @@ class ProfilController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_profil_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    public function serialize() {
+        return serialize($this->id);
+        }
+    
+    
+
+
+    #[Route('/delete', name: 'app_profil_delete', methods: ['POST'])]
+    public function delete(Request $request,  UserRepository $userRepository, TokenStorageInterface $tokenStorage): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $userRepository->remove($user);
+        $user = $this->getUser();
+        $id = $user->getId();
+
+        if ($this->isCsrfTokenValid('delete'.$user->getId() , $request->request->get('_token'))) {
+            
+            
+            $request->getSession()->invalidate();
+            $tokenStorage->setToken(); // TokenStorageInterface
+            $userRepository->remove($userRepository->find($id));
+            return $this->redirectToRoute('app_login');
         }
 
-        return $this->redirectToRoute('app_profil_index', [], Response::HTTP_SEE_OTHER);
+       
+        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
     }
 }

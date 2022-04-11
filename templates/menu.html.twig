@@ -2,18 +2,27 @@
     <div>
         <span>Affichage client :</span>
         <ul>
-            {% if app.user %}
             <li >Accueil</li>
             <li>Nos jeux</li>
             <li>Best-Sellers</li>
             <li>Abonnements</li>
+
+            {% if is_granted("ROLE_USER") %}
+            
             <li>Blog</li>
             <li>Contact</li>
             <li><a href="{{ path('app_profil_index') }}">Mon espace</a></li>
-            {% endif %}
-            <li> <a href="{{ path('app_register') }}">Inscription</a></li>
-            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
             <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+
+            {% else %}
+
+                <li> <a href="{{ path('app_register') }}">Inscription</a></li>
+                <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+
+            {% endif %}
+
+
+            
  
         </ul>
 
@@ -23,10 +32,11 @@
     </div>
     
     <div>
+        {% if is_granted("ROLE_ADMIN") %}
         <span>Back office :</span>
         <div class="container_admin">
             <ul>
-                {% if is_granted("ROLE_ADMIN") %}
+                
                     <li><a href="{{ path('app_admin_user_index') }}">GESTION ADMIN</a></li>
                   
                 <li><a href="{{ path('app_admin_category_index') }}">Liste des catégories</a></li>
@@ -42,8 +52,9 @@
                 <li><a href="{{ path('app_admin_discount_new') }}">Ajouter un discount</a></li>
                 <li><a href="{{ path('app_admin_subscription_index') }}">Liste des abonnements</a></li>
                 <li><a href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a></li>
-            {% endif %}
+            
             </ul>
         </div>
+    {% endif %}
     </div>
 </nav>
