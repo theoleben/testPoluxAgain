@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Picture;
 use App\Entity\Category;
+use App\Entity\CommandDetails;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\GameRepository;
 use Doctrine\Common\Collections\Collection;
