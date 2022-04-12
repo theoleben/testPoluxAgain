@@ -55,6 +55,9 @@ class Game
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: Picture::class)]
     private $picture;
 
+    #[ORM\OneToOne(mappedBy: 'game', targetEntity: CommandDetails::class, cascade: ['persist', 'remove'])]
+    private $commandDetails;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -242,6 +245,23 @@ class Game
                 $picture->setGame(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCommandDetails(): ?CommandDetails
+    {
+        return $this->commandDetails;
+    }
+
+    public function setCommandDetails(CommandDetails $commandDetails): self
+    {
+        // set the owning side of the relation if necessary
+        if ($commandDetails->getGame() !== $this) {
+            $commandDetails->setGame($this);
+        }
+
+        $this->commandDetails = $commandDetails;
 
         return $this;
     }
