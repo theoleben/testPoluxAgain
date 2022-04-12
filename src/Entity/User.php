@@ -51,6 +51,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $inscription_newsletter;
 
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Command::class, cascade: ['persist', 'remove'])]
+    private $command;
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -214,6 +218,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setInscriptionNewsletter(?bool $inscription_newsletter): self
     {
         $this->inscription_newsletter = $inscription_newsletter;
+
+        return $this;
+    }
+
+    public function getCommand(): ?Command
+    {
+        return $this->command;
+    }
+
+    public function setCommand(?Command $command): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($command === null && $this->command !== null) {
+            $this->command->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($command !== null && $command->getUser() !== $this) {
+            $command->setUser($this);
+        }
+
+        $this->command = $command;
 
         return $this;
     }
