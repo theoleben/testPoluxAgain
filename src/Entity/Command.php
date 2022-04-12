@@ -118,4 +118,9 @@ class Command
         return $this;
     }
 
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 78830887fdcb7acc8332e1b61cd788608612e2b9
 }
