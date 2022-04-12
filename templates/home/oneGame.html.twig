@@ -23,7 +23,9 @@
         <li>Composition du jeu : {{ game.material }}</li>
         <li>Description du jeu : {{ game.description }}</li>
         <li>Stock restant : {{ game.stock }}</li>
-        <li><button name="wish">Ce jeu m'intéresse</button></li>
+        <li> <a href> Prix de location : {{ game.rentalPrice }} </a> </li>
+        <li> <a href> Prix de vente : {{ game.sellingPrice }} </a> </li>
+        <li><a href="{{ path('insert_wishlist', {id: game.id}) }}">Ce jeu m'intéresse</a></li>
     </ul>
 </div>
 

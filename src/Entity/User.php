@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -50,6 +52,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $inscription_newsletter;
+
+    #[ORM\ManyToMany(targetEntity: Game::class, inversedBy: 'users')]
+    private $games;
+
+    public function __construct()
+    {
+        $this->games = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -217,4 +228,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Game>
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->games->contains($game)) {
+            $this->games[] = $game;
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        $this->games->removeElement($game);
+
+        return $this;
+    }
+
+   
 }

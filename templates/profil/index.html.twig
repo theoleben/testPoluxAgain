@@ -29,6 +29,11 @@
             {# {% endif %} #}
 
             <br><br>
+            <li>Votre wishlist:</li>
+             {% for game in app.user.games %}   
+              <li><a href="{{ path('app_onegame', {'id': game.id}) }}">{{game.title}}</a></li>
+             {% endfor %}
+
             <li >Votre identifiant: {{app.user.id}}</li> 
             <li >Autorisations:
     
