@@ -3,13 +3,12 @@
         <span>Affichage client :</span>
         <ul>
             <li >Accueil</li>
-            <li>Nos jeux</li>
-            <li>Best-Sellers</li>
-            <li>Abonnements</li>
+            <li>Meilleurs Jeux</li>
+           
 
             {% if is_granted("ROLE_USER") %}
             
-            <li>Blog</li>
+           
             <li>Contact</li>
             <li><a href="{{ path('app_profil_index') }}">Mon espace</a></li>
             <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
@@ -31,7 +30,7 @@
         </ul>
 
         <ul>
-            <li><a href="{{ path('app_display_game') }}">Les jeux</a></li>
+            <li><a href="{{ path('app_display_game') }}">Nos jeux</a></li>
         </ul>
     </div>
     
