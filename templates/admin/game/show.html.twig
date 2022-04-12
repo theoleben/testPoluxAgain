@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeux{% endblock %}
+
+{% block body %}
+    <h1>Jeux</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ game.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ game.title }}</td>
+            </tr>
+            <tr>
+                <th>Prix à la location</th>
+                <td>{{ game.rentalPrice }}</td>
+            </tr>
+            <tr>
+                <th>Prix de vente</th>
+                <td>{{ game.sellingPrice }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                {# meme boucle pour que template game pour l'affichage. #}
+                {% for cat in game.category %}
+                    <td>{{ cat.name }}</td>
+                {% endfor %}
+            <tr>
+                <th>Age</th>
+                <td>{{ game.age }}</td>
+            </tr>
+            <tr>
+                <th>Nb de joueur</th>
+                <td>{{ game.nbPlayers }}</td>
+            </tr>
+            <tr>
+                <th>Durée du jeu</th>
+                <td>{{ game.playTime }}</td>
+            </tr>
+            <tr>
+                <th>Material</th>
+                <td>{{ game.material }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ game.description }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ game.stock }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ game.grade }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_game_index') }}"><button class="btn">{{ button_label|default('Retourner à la liste') }}</button></a><br>
+
+    <a href="{{ path('app_admin_game_edit', {'id': game.id}) }}"><button class="btn">{{ button_label|default('Modifier') }}</button></a>
+
+
+    {{ include('admin/game/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage des jeux{% endblock %}
+
+{% block body %}
+
+
+{% for game in games %}
+
+<div>
+    <ul>
+        <li><a href="{{path('app_onegame', {'id': game.id})}}">Nom du jeu : {{ game.title }}</a></li>
+        <li>Photos du jeu : 
+            {% for picture in game.picture %}
+                <img src="{{ '/images/' ~ picture.name }}" alt="{{ picture.name }}" height="90px">
+            {% endfor %}
+        </li>
+        <li><a href="#"> Prix de location : {{ game.rentalPrice }}</a></li>
+        <li><a href="{{path('app_cart_add', {'id': game.id})}}"> Prix de vente : {{ game.sellingPrice }}</a></li>
+    </ul>
+</div>
+
+<hr>
+    
+{% endfor %}
+
+{% endblock %}

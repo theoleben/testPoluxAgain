@@ -15,6 +15,7 @@
                 <th>New_duration</th>
                 <th>Shipping_cost</th>
                 <th>Description</th>
+                <th>Discount</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                 <td>{{ subscription.newDuration }}</td>
                 <td>{{ subscription.shippingCost }}</td>
                 <td>{{ subscription.description }}</td>
+                <td>{{ subscription.discount ? subscription.discount.type : "Pas de discount" }}</td>
                 <td>
                     <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}">show</a>
                     <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">edit</a>

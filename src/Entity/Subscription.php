@@ -31,6 +31,9 @@ class Subscription
     #[ORM\Column(type: 'text')]
     private $description;
 
+    #[ORM\OneToOne(inversedBy: 'subscription', targetEntity: Discount::class, cascade: ['persist', 'remove'])]
+    private $discount;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Subscription
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDiscount(): ?Discount
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?Discount $discount): self
+    {
+        $this->discount = $discount;
 
         return $this;
     }
