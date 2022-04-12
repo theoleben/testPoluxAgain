@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mot de Passe</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.address }}</td>
+            </tr>
+            <tr>
+                <th>Code Postal</th>
+                <td>{{ user.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ user.city }}</td>
+            </tr>
+            <tr>
+                <th>Numéro de téléphone</th>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <tr>
+                <th>Inscription_newsletter</th>
+                <td>{{ user.inscriptionNewsletter ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_profil_index') }}">Revenir à la liste</a>
+
+    <a href="{{ path('app_profil_edit', {'id': user.id}) }}">Modifier</a>
+
+    {{ include('profil/_delete_form.html.twig') }}
+{% endblock %}

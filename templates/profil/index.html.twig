@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Utilisateur{% endblock %}
+
+    {% block body %}
+    <h2>Mes informations</h2>
+        <ul>
+            
+            
+
+            {# {% if app.user %} #}
+
+        
+            <li >Votre prénom: {{app.user.prenom}}</li>      
+            <li >Votre nom: {{app.user.nom}}</li>
+            <li >Votre mot de passe: ******** </li>
+            <li >Votre e-mail: {{app.user.email}}</li>
+            <li >Votre adresse: {{app.user.address}}</li>
+            <li >Votre ville: {{app.user.city}}</li>
+            <li >Votre code postal: {{app.user.zipCode}}</li>
+            <li >Votre numéro de téléphone: {{app.user.phone}}</li>
+
+            
+            <li><a href="{{ path('app_profil_edit', {'id': app.user.id}) }}">Modifier mes informations</a></li>
+            <br>
+            <li>{{include('profil/_delete_form.html.twig')}}</li>
+           
+
+            {# {% endif %} #}
+
+            <br><br>
+            <li>Votre wishlist:</li>
+             {% for game in app.user.games %}   
+              <li><a href="{{ path('app_onegame', {'id': game.id}) }}">{{game.title}}</a></li>
+             {% endfor %}
+
+            <li >Votre identifiant: {{app.user.id}}</li> 
+            <li >Autorisations:
+    
+            
+                {% for role in app.user.roles %}
+                 {% if role == 'ROLE_ADMIN'%}
+                     Administrateur
+               
+    
+                {% elseif role == 'ROLE_USER'%}
+                    Utilisateur
+    
+    
+                {% endif %}
+    
+                {{not loop.last ? ',' : ''}}
+
+                    
+                {% endfor %}
+            </li>  
+
+           
+        </ul>
+    {% endblock %}
+    

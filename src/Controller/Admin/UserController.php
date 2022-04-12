@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Game;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -22,6 +23,33 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+
+    #[Route('/insertWish/{id}', name: 'insert_wishlist', methods: ['GET'])]
+    public function insertWish( EntityManagerInterface $em, Request $request, Game $gameWish): Response
+    {
+        $userWish = $this->getUser();
+
+        if( !$userWish)
+        {
+            return $this->redirectToRoute( 'app_login', [], Response::HTTP_SEE_OTHER);
+        }else
+        {
+            $userWish = $this->getUser();
+        
+            // dd($userWish);
+    
+            $userWish->addGame($gameWish); 
+    
+                
+            $em->flush();
+            
+    
+            return $this->redirectToRoute( 'app_profil_index', [], Response::HTTP_SEE_OTHER);
+        }
+       
+    }
+
+
 
     #[Route('/new', name: 'app_admin_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository, Hasher $hasher): Response
