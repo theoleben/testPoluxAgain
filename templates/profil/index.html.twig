@@ -4,38 +4,39 @@
 
     {% block body %}
     <h2>Mes informations</h2>
-        <ul>
+        <ul class="list-group">
             
             
 
             {# {% if app.user %} #}
 
         
-            <li >Votre prénom: {{app.user.prenom}}</li>      
-            <li >Votre nom: {{app.user.nom}}</li>
-            <li >Votre mot de passe: ******** </li>
-            <li >Votre e-mail: {{app.user.email}}</li>
-            <li >Votre adresse: {{app.user.address}}</li>
-            <li >Votre ville: {{app.user.city}}</li>
-            <li >Votre code postal: {{app.user.zipCode}}</li>
-            <li >Votre numéro de téléphone: {{app.user.phone}}</li>
+            <li class="list-group-item">Votre prénom: {{app.user.prenom}}</li>      
+            <li class="list-group-item">Votre nom: {{app.user.nom}}</li>
+            <li class="list-group-item">Votre mot de passe: ******** </li>
+            <li class="list-group-item">Votre e-mail: {{app.user.email}}</li>
+            <li class="list-group-item">Votre adresse: {{app.user.address}}</li>
+            <li class="list-group-item">Votre ville: {{app.user.city}}</li>
+            <li class="list-group-item">Votre code postal: {{app.user.zipCode}}</li>
+            <li class="list-group-item">Votre numéro de téléphone: {{app.user.phone}}</li>
 
             
-            <li><a href="{{ path('app_profil_edit', {'id': app.user.id}) }}">Modifier mes informations</a></li>
+            <li class="list-group-item"><a class="btn btn-secondary" href="{{ path('app_profil_edit', {'id': app.user.id}) }}">Modifier mes informations</a></li>
+
             <br>
-            <li>{{include('profil/_delete_form.html.twig')}}</li>
+            <li class="list-group-item">{{include('profil/_delete_form.html.twig')}}</li>
            
 
             {# {% endif %} #}
 
             <br><br>
-            <li>Votre wishlist:</li>
+            <li class="list-group-item">Votre wishlist:</li>
              {% for game in app.user.games %}   
               <li><a href="{{ path('app_onegame', {'id': game.id}) }}">{{game.title}}</a></li>
              {% endfor %}
 
-            <li >Votre identifiant: {{app.user.id}}</li> 
-            <li >Autorisations:
+            <li class="list-group-item" >Votre identifiant: {{app.user.id}}</li> 
+            <li class="list-group-item">Autorisations:
     
             
                 {% for role in app.user.roles %}
@@ -53,7 +54,7 @@
 
                     
                 {% endfor %}
-            </li>  
+            </li> 
 
            
         </ul>

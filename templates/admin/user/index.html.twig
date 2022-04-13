@@ -29,8 +29,8 @@
                 <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ user.inscriptionNewsletter }}</td>
                 <td>
-                    <a href="{{ path('app_admin_user_show', {'id': user.id}) }}">consulter</a>
-                    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">modifier</a>
+                    <a href="{{ path('app_admin_user_show', {'id': user.id}) }}"><i class="fa fa-user"></i></a>
+                    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}"><i class="fa fa-edit"></i></a>
                     <a href="{{ path('app_admin_user_delete', {'id': user.id}) }}">supprimer</a>
                 </td>
             </tr>
