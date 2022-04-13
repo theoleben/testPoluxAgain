@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes abonnements{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+    <p>Voici vos abonnements</p>
+    {% for  sub in app.user.userSubscriptions %}
+        <ul>
+        <li>Identifiant : {{ sub.id }}</li>
+        {# START subscription #}
+        <li>Abonnement :  {{ sub.subscription.title }} </li>
+        {# <li>Nombre de jeux :  {{ sub.subscription.gamesNumber }} </li> #}
+        {# ... #}
+        {# END subscription #}
+        <li>Date de souscription : {{ sub.startDate|date('d-m-Y') }}</li>
+        <li>Utilisation de la réduction : {{ sub.isDiscountUsed }}</li>
+        </ul>
+    {% else %}
+    <p>Il n'y a pas d'abonnements</p>
+    {% endfor %}
+
+{% else %}
+
+<p>L'utilisateur n'est pas connecté</p>
+    
+{% endif %}
+
+{% endblock %}

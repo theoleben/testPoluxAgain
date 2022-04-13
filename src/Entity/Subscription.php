@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SubscriptionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SubscriptionRepository::class)]
@@ -33,6 +35,14 @@ class Subscription
 
     #[ORM\OneToOne(inversedBy: 'subscription', targetEntity: Discount::class, cascade: ['persist', 'remove'])]
     private $discount;
+
+    #[ORM\OneToMany(mappedBy: 'subscription', targetEntity: UserSubscription::class)]
+    private $userSubscriptions;
+
+    public function __construct()
+    {
+        $this->userSubscriptions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +129,36 @@ class Subscription
     public function setDiscount(?Discount $discount): self
     {
         $this->discount = $discount;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserSubscription>
+     */
+    public function getUserSubscriptions(): Collection
+    {
+        return $this->userSubscriptions;
+    }
+
+    public function addUserSubscription(UserSubscription $userSubscription): self
+    {
+        if (!$this->userSubscriptions->contains($userSubscription)) {
+            $this->userSubscriptions[] = $userSubscription;
+            $userSubscription->setSubscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserSubscription(UserSubscription $userSubscription): self
+    {
+        if ($this->userSubscriptions->removeElement($userSubscription)) {
+            // set the owning side to null (unless already changed)
+            if ($userSubscription->getSubscription() === $this) {
+                $userSubscription->setSubscription(null);
+            }
+        }
 
         return $this;
     }
