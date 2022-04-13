@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use DateTime;
 use App\Entity\UserSubscription;
 use App\Repository\SubscriptionRepository;
 use App\Repository\UserRepository;
+use App\Repository\UserSubscriptionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,5 +56,23 @@ class UserSubscriptionController extends AbstractController
         {
             return $this->redirectToRoute( 'app_login', [], Response::HTTP_SEE_OTHER );
         }
+    }
+
+    #[Route('/user/display', name: 'app_user_subscription_display')]
+    public function display( ): Response
+    {
+        // $user = $this->getUser();
+        // $user->getSubscriptions();
+        // dd( $user );
+
+        // $my_user = new User( $user );
+        // dd( $my_user );
+        // $my_user->getUserSubscriptions();
+        // $user->getUserSubscriptions();
+
+
+        return $this->render('user_subscription/testDisplay.html.twig', [
+            'controller_name' => 'UserSubscriptionController',
+        ]);
     }
 }
