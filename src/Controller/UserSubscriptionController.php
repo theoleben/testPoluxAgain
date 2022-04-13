@@ -47,22 +47,12 @@ class UserSubscriptionController extends AbstractController
     
             $entityManager->persist( $new_subscription );
             $entityManager->flush();
-    
-            return $this->render('user_subscription/index.html.twig', [
-                'controller_name' => 'Lets go',
-            ]);
+            
+            return $this->redirectToRoute( 'app_profil_index', [], Response::HTTP_SEE_OTHER );
         }
         else
         {
             return $this->redirectToRoute( 'app_login', [], Response::HTTP_SEE_OTHER );
         }
-    }
-
-    #[Route('/user/display', name: 'app_user_subscription_display')]
-    public function display( ): Response
-    {
-        return $this->render('user_subscription/testDisplay.html.twig', [
-            'controller_name' => 'UserSubscriptionController',
-        ]);
     }
 }
