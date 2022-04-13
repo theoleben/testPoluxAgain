@@ -15,6 +15,7 @@
         <li>Shipping cost : {{ sub.shippingCost }} </li>
         <li>Description : {{ sub.description }} </li>
     </ul>
+    <a href="{{ path('app_user_subscription_insert', {idSub: sub.id}) }}">Je m'abonne</a>
 </div>
 
 <hr>
