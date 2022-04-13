@@ -61,16 +61,6 @@ class UserSubscriptionController extends AbstractController
     #[Route('/user/display', name: 'app_user_subscription_display')]
     public function display( ): Response
     {
-        // $user = $this->getUser();
-        // $user->getSubscriptions();
-        // dd( $user );
-
-        // $my_user = new User( $user );
-        // dd( $my_user );
-        // $my_user->getUserSubscriptions();
-        // $user->getUserSubscriptions();
-
-
         return $this->render('user_subscription/testDisplay.html.twig', [
             'controller_name' => 'UserSubscriptionController',
         ]);
