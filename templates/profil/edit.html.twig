@@ -5,7 +5,9 @@
 {% block body %}
     <h1>Modifier mes informations</h1>
    
-    {{ include('profil/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('profil/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    {# <a class="btn btn-secondary" href="{{ path('app_profil_index') }}">Modifier</a> #}
 
     <a class="btn btn-secondary" href="{{ path('app_profil_index') }}">Retourner à mon profil</a>
 

@@ -3,23 +3,30 @@
 {% block title %}Abonnements{% endblock %}
 
 {% block body %}
-
+    <blockquote class="blockquote text-center">
+        <h1>Nos abonnements</h1>
+        </blockquote>
+        <br><br>
+<div class="container">
+    <div class="row justify-content-around">
 {% for sub in subscriptions %}
 
-<div>
-    <ul>
-        <li>Title : {{ sub.title }} </li>
-        <li>Games number : {{ sub.gamesNumber }} </li>
-        <li>Price : {{ sub.price }} </li>
-        <li>New duration : {{ sub.newDuration }} </li>
-        <li>Shipping cost : {{ sub.shippingCost }} </li>
-        <li>Description : {{ sub.description }} </li>
-    </ul>
-    <a href="{{ path('app_user_subscription_insert', {idSub: sub.id}) }}">Je m'abonne</a>
-</div>
-
-<hr>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <p class="card-text">Formule : {{ sub.title }} </p>
+            <p class="card-text">Nombre de jeux à louer : {{ sub.gamesNumber }} </p>
+            <p class="card-text">Prix : {{ sub.price }} €</p>
+            <p class="card-text">Valable : {{ sub.newDuration }} mois</p>
+            <p class="card-text">Frais de livraison : {{ sub.shippingCost }} € </p>
+            <p class="card-text">Description : {{ sub.description }} </p>
+            </div>
+            <a class="btn btn-info" href="{{ path('app_user_subscription_insert', {idSub: sub.id}) }}">Je m'abonne</a>
+        </div>
+        
     
 {% endfor %}
+ </div>
+</div>
+<br><br>
 
 {% endblock %}

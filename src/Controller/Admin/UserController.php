@@ -34,7 +34,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute( 'app_login', [], Response::HTTP_SEE_OTHER);
         }else
         {
-            $userWish = $this->getUser();
+            // $userWish = $this->getUser();
         
             // dd($userWish);
     
