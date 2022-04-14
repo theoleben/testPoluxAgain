@@ -43,9 +43,19 @@ class HomeController extends AbstractController
     public function displayOneGame($id, GameRepository $gameRepository ) : Response
     {
         $game = $gameRepository->find($id);
+        $games = $gameRepository->findAll();
 
         return $this->render('home/oneGame.html.twig', [
-            'game' => $game
+            'game' => $game,
+            'games' => $games
         ]);
     }
+
+    #[Route('/faq', name: 'app_faq')]
+    public function faq(): Response
+    {
+        return $this->render('home/faq.html.twig', [
+        ]);
+    }
+
 }
