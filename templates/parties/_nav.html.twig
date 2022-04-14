@@ -11,29 +11,67 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_display_game') }}">Nos Jeux</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Meilleurs Jeux </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_display_subscription') }}">Abonnements</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mon Espace</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Meilleurs Jeux </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_display_subscription') }}">Abonnements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mon Espace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
 
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catégories</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_admin_category_index') }}">Liste</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_admin_category_new') }}">Ajouter</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                       
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jeux</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ path('app_admin_game_index') }}">Liste</a></li>
+                    <li><a class="dropdown-item" href="{{ path('app_admin_game_new') }}">Ajouter</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                   </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Images</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ path('app_admin_picture_index') }}">Liste</a></li>
+                    <li><a class="dropdown-item" href="{{ path('app_admin_picture_new') }}">Ajouter</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                   </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Discounts</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ path('app_admin_discount_index') }}">Liste</a></li>
+                    <li><a class="dropdown-item" href="{{ path('app_admin_discount_new') }}">Ajouter</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                   </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Abonnements</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ path('app_admin_subscription_index') }}">Liste</a></li>
+                    <li><a class="dropdown-item" href="{{ path('app_admin_subscription_new') }}">Ajouter</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                   </ul>
+                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
                 </li>
