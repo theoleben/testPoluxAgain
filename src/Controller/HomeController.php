@@ -52,4 +52,20 @@ class HomeController extends AbstractController
             'game' => $game
         ]);
     }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
+    {
+        return $this->render('home/contact.html.twig', [
+            
+        ]);
+    }
+
+    #[Route('/blog', name: 'app_blog')]
+    public function blog(): Response
+    {
+        return $this->render('home/blog.html.twig', [
+            
+        ]);
+    }
 }
