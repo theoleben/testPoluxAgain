@@ -3,7 +3,7 @@
 {% block title %}Discount{% endblock %}
 
 {% block body %}
-    <h1>Discount</h1>
+    <h1>Réduction</h1>
 
     <table class="table">
         <tbody>
@@ -16,7 +16,7 @@
                 <td>{{ discount.type }}</td>
             </tr>
             <tr>
-                <th>Validity</th>
+                <th>Validité</th>
                 <td>{{ discount.validity ? discount.validity|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_discount_index') }}">back to list</a>
+    <a class="btn sm-btn btn-secondary" href="{{ path('app_admin_discount_index') }}">Retourner à la liste</a>
 
-    <a href="{{ path('app_admin_discount_edit', {'id': discount.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('app_admin_discount_edit', {'id': discount.id}) }}">Modifier</a>
 
     {{ include('admin/discount/_delete_form.html.twig') }}
 {% endblock %}

@@ -3,20 +3,20 @@
 {% block title %}Subscription index{% endblock %}
 
 {% block body %}
-    <h1>Subscription index</h1>
+    <h1>Liste des abonnements</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Games_number</th>
-                <th>Price</th>
-                <th>New_duration</th>
-                <th>Shipping_cost</th>
+                <th>Titre</th>
+                <th>Nombre de jeux</th>
+                <th>Prix</th>
+                <th>Nouvelle durée</th>
+                <th>Frais de livraison</th>
                 <th>Description</th>
-                <th>Discount</th>
-                <th>actions</th>
+                <th>Réduction</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +31,8 @@
                 <td>{{ subscription.description }}</td>
                 <td>{{ subscription.discount ? subscription.discount.type : "Pas de discount" }}</td>
                 <td>
-                    <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}">show</a>
-                    <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}"><i class="fa fa-user"></i></a>
+                    <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}"><i class="fa fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_subscription_new') }}">Create new</a>
+    <a class="btn btn-info" href="{{ path('app_admin_subscription_new') }}">Créer un nouvel abonnement</a>
 {% endblock %}

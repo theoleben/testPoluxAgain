@@ -3,7 +3,7 @@
 {% block title %}Subscription{% endblock %}
 
 {% block body %}
-    <h1>Subscription</h1>
+    <h1>Abonnement</h1>
 
     <table class="table">
         <tbody>
@@ -12,23 +12,23 @@
                 <td>{{ subscription.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ subscription.title }}</td>
             </tr>
             <tr>
-                <th>Games_number</th>
+                <th>Nombre de jeux</th>
                 <td>{{ subscription.gamesNumber }}</td>
             </tr>
             <tr>
-                <th>Price</th>
+                <th>Prix</th>
                 <td>{{ subscription.price }}</td>
             </tr>
             <tr>
-                <th>New_duration</th>
+                <th>Nouvelle durée</th>
                 <td>{{ subscription.newDuration }}</td>
             </tr>
             <tr>
-                <th>Shipping_cost</th>
+                <th>Frais de livraison</th>
                 <td>{{ subscription.shippingCost }}</td>
             </tr>
             <tr>
@@ -38,9 +38,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_subscription_index') }}">back to list</a>
+    <a class="btn sm-btn btn-secondary" href="{{ path('app_admin_subscription_index') }}">Retourner à la liste</a>
 
-    <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}">Modifier</a>
 
     {{ include('admin/subscription/_delete_form.html.twig') }}
 {% endblock %}

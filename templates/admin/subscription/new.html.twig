@@ -3,9 +3,9 @@
 {% block title %}New Subscription{% endblock %}
 
 {% block body %}
-    <h1>Create new Subscription</h1>
+    <h1>Créer un nouvel abonnement</h1>
 
     {{ include('admin/subscription/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_subscription_index') }}">back to list</a>
+    <a class="btn btn-info" href="{{ path('app_admin_subscription_index') }}">Retourner à la liste</a>
 {% endblock %}

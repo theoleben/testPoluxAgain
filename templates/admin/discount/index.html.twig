@@ -3,16 +3,16 @@
 {% block title %}Discount index{% endblock %}
 
 {% block body %}
-    <h1>Discount index</h1>
+    <h1>Liste des réductions</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Type</th>
-                <th>Validity</th>
+                <th>Validité</th>
                 <th>Description</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +23,8 @@
                 <td>{{ discount.validity }}</td>
                 <td>{{ discount.description }}</td>
                 <td>
-                    <a href="{{ path('app_admin_discount_show', {'id': discount.id}) }}">show</a>
-                    <a href="{{ path('app_admin_discount_edit', {'id': discount.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_discount_show', {'id': discount.id}) }}"><i class="fa fa-user"></i></a>
+                    <a href="{{ path('app_admin_discount_edit', {'id': discount.id}) }}"><i class="fa fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_discount_new') }}">Create new</a>
+    <a class="btn btn-info" href="{{ path('app_admin_discount_new') }}">Créer une nouvelle réduction</a>
 {% endblock %}

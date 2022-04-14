@@ -3,9 +3,9 @@
 {% block title %}New Discount{% endblock %}
 
 {% block body %}
-    <h1>Create new Discount</h1>
+    <h1>Créer une nouvelle réduction</h1>
 
     {{ include('admin/discount/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_discount_index') }}">back to list</a>
+    <a class="btn btn-sm btn-secondary" href="{{ path('app_admin_discount_index') }}">Retourner à la liste</a>
 {% endblock %}
