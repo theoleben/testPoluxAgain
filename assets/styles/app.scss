@@ -36,20 +36,28 @@ figure figcaption a{
     text-decoration: none;
 }
 
-.imgSuperman{
-    margin-left: 50%;
-    align-content: center;
+img{
     height: 200px;
-    transition: 0.2s;
-    transform: scale(1);
+    width: 200px;
+}
+
+.imgSuperman{
+    border: 1px solid hotpink;
+    // margin-left: 50%;
+    // align-content: center;
+    // height: 100px;
+    // width:100px;
+    // transition: 0.2s;
+    // transform: scale(1);
 }
 
 .imgSuperman:hover{
-    margin-left: 500px;
-    transition: ease-in 500ms;
+    // margin-left: 500px;
+    // transition: ease-in 500ms;
 }
 
 .phraseMove{
+
     // margin-left: 50px;
     // transition: 0.2s;
     // transform: scale(1);
@@ -58,6 +66,24 @@ figure figcaption a{
 .phraseMove:hover{
     // margin-left: 500px;
     // transition: ease-in 500ms;
+}
+
+.bordure{
+    border: 1px solid black;
+    height: 200px;
+}
+
+.bordure2{
+    border: 2px solid red;
+    height: 200px;
+}
+
+.bordure3{
+    border: 2px solid green;
+}
+
+.bordure4{
+    border: 2px solid purple;
 }
 
 
