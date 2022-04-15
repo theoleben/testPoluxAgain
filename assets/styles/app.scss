@@ -15,11 +15,17 @@ p{
     font-family: 'Montserrat', sans-serif;
 }
 
+h1,
+h2{
+    padding:0;
+    margin:0;
+}
+
 /* PARTIE HEADER */
 
 .divSuperman{
     background-color: #DEFCFC;
-    height: 100px;
+    // height: 100px;
     // position: absolute;
 }
 
@@ -58,14 +64,12 @@ img{
     font-family: 'Sacramento', cursive;
     font-weight: bold;
     font-size: 64px;
-    margin-left: 30px;
 }
 
 .h2header{
     color:#1CC5DC;
     font-family: 'Sacramento', cursive;
     font-size: 56px;
-    margin-right: 30px;
 }
 
 .colorfa {
@@ -75,16 +79,16 @@ img{
 
 // .bordure{
 //     border: 1px solid black;
-//     height: 200px;
+//     // height: 200px;
 // }
 
 // .bordure2{
 //     border: 2px solid red;
-//     height: 200px;
+//     // height: 200px;
 // }
 
 // .bordure3{
-//     border: 2px solid green;
+//     border: 2px solid hotpink;
 // }
 
 // .bordure4{
@@ -97,7 +101,7 @@ img{
 
 // .bordure6{
 //     border: 2px solid orange;
-//     width: 500px;
+//     // width: 500px;
 // }
 
 // .bordure7{
