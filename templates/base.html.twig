@@ -57,15 +57,17 @@
        
         {% block javascripts %} 
             {{ encore_entry_script_tags('app') }} 
+
+            
         {% endblock %}
         
         
-       
     
     </head>
     <body>
         {{ include("header.html.twig") }}
         {{ include("menu.html.twig") }}
+        
         <div class="container">
         {% block body %}
         
@@ -73,8 +75,9 @@
 
         
         </div>
-
+        {{ include("composantNewsLetter.html.twig") }}
         {{ include("parties/footer.html.twig") }}
 
+        <script src="{{asset('../assets/test.js')}}">
 	 </body>
    </html>
