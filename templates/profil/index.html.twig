@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Utilisateur{% endblock %}
+
+    {% block body %}
+    <h1>Bienvenu dans votre espace {{app.user.prenom}} !</h1>
+    <div class="row">
+        <div class="col-md-6 bordure pt-5 pe-5">
+    <h2>Mes informations</h2>
+        <ul class="list-group">
+            
+            
+
+            {# {% if app.user %} #}
+
+        
+            <li class="list-group-item">Votre prénom: {{app.user.prenom}}</li>      
+            <li class="list-group-item">Votre nom: {{app.user.nom}}</li>
+            <li class="list-group-item">Votre mot de passe: ******** </li>
+            <li class="list-group-item">Votre e-mail: {{app.user.email}}</li>
+            <li class="list-group-item">Votre adresse: {{app.user.address}}</li>
+            <li class="list-group-item">Votre ville: {{app.user.city}}</li>
+            <li class="list-group-item">Votre code postal: {{app.user.zipCode}}</li>
+            <li class="list-group-item">Votre numéro de téléphone: {{app.user.phone}}</li>
+
+            
+            <li class="list-group-item"><a class="btn btn-secondary" href="{{ path('app_profil_edit', {'id': app.user.id}) }}">Modifier mes informations</a></li>
+
+            <br>
+            <li class="list-group-item">{{include('profil/_delete_form.html.twig')}}</li>
+           
+
+            {# {% endif %} #}
+
+            <br><br>
+           
+
+            <li class="list-group-item" >Votre identifiant: {{app.user.id}}</li> 
+            <li class="list-group-item">Autorisations:
+    
+            
+                {% for role in app.user.roles %}
+                 {% if role == 'ROLE_ADMIN'%}
+                     Administrateur
+               
+    
+                {% elseif role == 'ROLE_USER'%}
+                    Utilisateur
+    
+    
+                {% endif %}
+    
+                {{not loop.last ? ',' : ''}}
+
+                    
+                {% endfor %}
+            </li> 
+
+           
+        </ul>
+        </div>
+
+        <br><br>
+        <div class="col-md-6 bordure pt-5 pe-5">
+            <h2>Mes abonnements</h2>
+            <div class="row pt-3 pe-3">
+        {% if app.user %}
+        
+            {% for  sub in app.user.userSubscriptions %}
+                <ul class="list-group">
+                <li class="list-group-item">Identifiant : {{ sub.id }}</li>
+                {# START subscription #}
+                <li class="list-group-item">Abonnement :  {{ sub.subscription.title }} </li>
+                {# <li>Nombre de jeux :  {{ sub.subscription.gamesNumber }} </li> #}
+                {# ... #}
+                {# END subscription #}
+                <li class="list-group-item">Date de souscription : {{ sub.startDate|date('d-m-Y') }}</li>
+                <li class="list-group-item">Utilisation de la réduction : {{ sub.isDiscountUsed }}</li>
+                </ul>
+            {% else %}
+                <p>Il n'y a pas d'abonnements</p>
+            {% endfor %}
+
+        {% else %}
+            <p>L'utilisateur n'est pas connecté</p>
+        {% endif %}
+
+    
+        </div>
+        <br><br>
+        <h2>Ma wishlist</h2>
+    <div class="row pt-3 pe-3">
+            {% for game in app.user.games %}   
+             <li class="list-group-item"><a href="{{ path('app_onegame', {'id': game.id}) }}">{{game.title}}</a></li>
+            {% endfor %}
+        </div>
+            <br><br>
+         <h2>Mes commandes</h2>
+            <div class="row pt-3 pe-3">
+   
+                <ul class="list-group">
+                    <li class="list-group-item">Nom du jeu: </li>
+                    <li class="list-group-item">Quantité: </li>
+                    <li class="list-group-item">Prix: </li>
+                </ul>
+            </div>
+    </div>
+</div>
+
+
+{% endblock %}

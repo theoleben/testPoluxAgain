@@ -51,7 +51,6 @@ class Picture
 
     public function __toString()
     {
-        // Cette fonction est créée pour afficher le name dans le selecteur de catégories
         return $this->name;
     }
 }

@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('app_admin_discount_delete', {'id': discount.id}) }}" onsubmit="return confirm('Etes-vous sûr de vous supprimer le compte');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ discount.id) }}">
-    <button class="btn">Supprimer</button>
+    <button class="btn sm-btn btn-danger">Supprimer</button>
 </form>

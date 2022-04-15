@@ -1,0 +1,90 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: #fff;
+}
+
+nav, .container_admin
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* PARTIE HEADER */
+
+.divSuperman{
+    background-color: #DEFCFC;
+}
+
+figure{
+    margin: 10px;
+    width: 600px;
+    overflow: hidden;
+}
+
+figcaption{
+    width:100%;
+    text-align:center;
+    z-index:1000;
+    // background-color: grey;
+}
+
+figure figcaption a{
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+.imgSuperman{
+    border: 1px solid hotpink;
+    // margin-left: 50%;
+    // align-content: center;
+    // height: 100px;
+    // width:100px;
+    // transition: 0.2s;
+    // transform: scale(1);
+}
+
+.imgSuperman:hover{
+    // margin-left: 500px;
+    // transition: ease-in 500ms;
+}
+
+.phraseMove{
+
+    // margin-left: 50px;
+    // transition: 0.2s;
+    // transform: scale(1);
+}
+
+.phraseMove:hover{
+    // margin-left: 500px;
+    // transition: ease-in 500ms;
+}
+
+// .bordure{
+//     border: 1px solid black;
+//     height: 200px;
+// }
+
+// .bordure2{
+//     border: 2px solid red;
+//     height: 200px;
+// }
+
+// .bordure3{
+//     border: 2px solid green;
+// }
+
+// .bordure4{
+//     border: 2px solid purple;
+// }
+
+
+/* FIN PARTIE HEADER */
