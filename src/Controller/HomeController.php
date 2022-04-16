@@ -68,4 +68,16 @@ class HomeController extends AbstractController
             
         ]);
     }
+    
+    #[Route('/cgv', name: 'app_cgv')]
+    public function displaycgv(): Response
+    {
+        return $this->render('home/cgv.html.twig',[]);
+    }
+
+    #[Route('/mentions_legales', name: 'app_mentions_legales')]
+    public function displaymentions_legales(): Response
+    {
+        return $this->render('home/mentions_legales.html.twig',[]);
+    }
 }
