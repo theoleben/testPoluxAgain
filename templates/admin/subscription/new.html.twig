@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Subscription{% endblock %}
+{% block title %}Créer un nouvel abonnement{% endblock %}
 
 {% block body %}
     <h1>Créer un nouvel abonnement</h1>
 
     {{ include('admin/subscription/_form.html.twig') }}
 
-    <a class="btn btn-info" href="{{ path('app_admin_subscription_index') }}">Retourner à la liste</a>
+    <a class="btn btn-secondary" href="{{ path('app_admin_subscription_index') }}">Retourner à la liste</a>
 {% endblock %}

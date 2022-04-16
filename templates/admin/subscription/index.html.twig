@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subscription index{% endblock %}
+{% block title %}Liste des abonnements{% endblock %}
 
 {% block body %}
     <h1>Liste des abonnements</h1>
 
-    <table class="table">
+    <table class="table table-bordered text-center">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,7 +23,7 @@
         {% for subscription in subscriptions %}
             <tr>
                 <td>{{ subscription.id }}</td>
-                <td>{{ subscription.title }}</td>
+                <td><strong>{{ subscription.title }}</strong></td>
                 <td>{{ subscription.gamesNumber }}</td>
                 <td>{{ subscription.price }}</td>
                 <td>{{ subscription.newDuration }}</td>
@@ -32,12 +32,15 @@
                 <td>{{ subscription.discount ? subscription.discount.type : "Pas de discount" }}</td>
                 <td>
                     <a href="{{ path('app_admin_subscription_show', {'id': subscription.id}) }}"><i class="fa fa-user"></i></a>
+
                     <a href="{{ path('app_admin_subscription_edit', {'id': subscription.id}) }}"><i class="fa fa-edit"></i></a>
+
+                    <a href="{{ path('app_admin_subscription_delete', {'id': subscription.id}) }}"><i class="fa-solid fa-trash-can"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Aucun abonnement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

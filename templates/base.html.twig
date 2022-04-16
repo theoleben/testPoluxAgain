@@ -66,13 +66,16 @@
     <body>
         {{ include("header.html.twig") }}
         {{ include("menu.html.twig") }}
+        {% block container %}
         <div class="container">
+        {% endblock %}
         {% block body %}
         
         {% endblock %}
 
-        
+        {% block div %}
         </div>
+        {% endblock %}
 
         {{ include("parties/footer.html.twig") }}
 
