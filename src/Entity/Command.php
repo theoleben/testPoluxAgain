@@ -35,7 +35,6 @@ class Command
         $this->commandDetails = new ArrayCollection();
     }
 
-
     public function getId(): ?int
     {
         return $this->id;

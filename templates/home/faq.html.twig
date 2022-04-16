@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ Polux{% endblock %}
+
+{% block body %}
+
+<body>
+    {# <div class="container"> #}
+    <br />
+    <br />
+    <br />
+
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="open" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        Cette section contient une foule d'informations, liées à <strong>pouvant vous aider dans vos recherches</strong>. Si vous ne trouvez pas de réponse à votre question, 
+        <a href=""> n'hésitez pas à nous contacter.</a>
+    </div>
+
+    <br />
+
+    <div class="" id="accordion">
+        <div class="faqHeader text-center"><h2>Questions/ Reponses</h2></div><br>
+        <div class="card ">
+            <div class="panel-heading">
+                <h4 class="card-header">
+                    
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Pour passer votre commande, voici les différentes étapes que vous allez rencontrer : </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="card-block">
+                    <p>Pour passer votre commande, voici les différentes étapes que vous allez rencontrer :<br><br>
+
+-         La sélection de vos articles<br><br>
+
+Pour trouver le jouet préféré de votre enfant, nous nous invitons à naviguer sur notre site, sur les différentes pages, parmi les catégories, les univers ou via le classement de nos références par âges.<br>
+
+-          Ajouter vos articles au panier<br><br>
+
+Pour mettre l’article désiré dans votre panier, cliquez sur la vignette pour accéder à la fiche produit, puis sur le boutons « Ajouter au panier ». Polux.fr vous propose également de modifier les quantités ou de retirer un produit de votre panier en cliquant sur les icones correspondantes.<br>
+
+ Polux vous offre l’option de conserver les articles ajoutés à votre panier pour un temps illimité le temps que vous soyez prêt à les acheter. Nous vous invitons à rafraichir le panier avant de procéder à votre paiement.<br>
+
+-          La validation de votre panier<br><br>
+
+Votre panier est accessible par l’icône correspondante en haut à droite de votre écran. Il ne vous reste plus qu’à poursuivre en cliquant sur « je valide mon panier ».<br>
+
+-          Passer votre commande<br><br>
+
+Il vous est demandé de vous identifier ou de créer un compte pour pouvoir passer votre première commande. Attention, votre compte client ne sera pas encore vraiment validé ou créé à cette étape de la commande. La véritable création du compte client vous sera proposée que lorsque vous aurez déjà passé votre commande.<br>
+
+Une fois identifié, choisissez le mode de livraison qui vous convient ainsi que les différentes options que nous mettons à votre disposition. Il vous faudra accepter nos conditions générales de vente en cochant la case correspondante, pour optez ensuite pour le mode de paiement de votre choix et régler en toute sécurité.</p><br>
+                </div>
+            </div>
+        </div>
+        <div class="card ">
+            <div class="panel-heading">
+                <h4 class="card-header">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Dois-je créer un compte pour passer commande ?</a>
+                </h4>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse">
+                <div class="card-block"><br>
+                    La création de compte n'est pas obligatoire pour passer une commande, cependant nous vous conseillons de le faire afin de pouvoir suivre votre commande. <br><br>
+                </div>
+            </div>
+        </div>
+        <div class="card ">
+            <div class="panel-heading">
+                <h4 class="card-header">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">Où trouver ma facture ?</a>
+                </h4>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse">
+                <div class="card-block">
+                    Lors d'un achat avec livraison à domicile, elle vous est envoyée par email. <br>
+
+                    Lors d'un retrait au magasin elle vous est envoyé par email après le retrait de votre commande. Vérifiez dans vos spams et courriers indésirables.<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="faqHeader"></div>
+        <div class="card ">
+            <div class="panel-heading">
+                <h4 class="card-header">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Je n'ai pas reçu de mail de confirmation, que dois-je faire ?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="card-block">
+                    Vérifiez dans vos spams et courriers indésirables sinon pour une commande en livraison contacter le service client au 00.00.00.00.00 et contacter le magasin de retrait pour un click&collect.<br>
+                </div>
+            </div>
+        </div>
+        <div class="card ">
+            <div class="panel-heading">
+                <h4 class="card-header">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Je souhaite un emballage cadeau ou insérer un message d'anniversaire lors de ma commande sur le site, comment faire ?</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="card-block">
+                    Dans le cas d'un click&collect, je le précise lors de ma commande.<br><br>
+
+                    Dans le cas d'une livraison à domicile, ce service n'est pas proposé.<br>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card ">
+            <div class"panel-heading">
+                <h4 class="panel-heading">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Je souhaite louer 1 ou plusieurs articles</a>
+                </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+                <div class="card-block">
+                    Nous vous invitons à valider votre commande directement via notre site internet en click&collect ou à contacter directement le magasin.<br><br>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+{# </div> #}
+  
+   
+    
+{% endblock %} 

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Utilisateur{% endblock %}
 
 {% block body %}
     <h1>Fiche utilisateur</h1>
@@ -32,7 +32,7 @@
                 <td>{{ user.nom }}</td>
             </tr>
             <tr>
-                <th>Date_naissance</th>
+                <th>Date de naissance</th>
                 <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
@@ -52,7 +52,7 @@
                 <td>{{ user.phone}}</td>
             </tr>
             <tr>
-                <th>Inscription_newsletter</th>
+                <th>Inscription à la newsletter</th>
                 <td>{{ user.inscriptionNewsletter }}</td>
             </tr>
         </tbody>
