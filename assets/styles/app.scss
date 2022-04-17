@@ -21,7 +21,8 @@ h2{
     margin:0;
 }
 
-h2{
+h2,
+h3{
     color: #1CC5DC;
 }
 
@@ -189,13 +190,25 @@ img{
     background-color: #98DDCA ;
 }
 
-// .B1{
-//     border: 2px solid red;
-// }
+.B1{
+    border: 2px solid red;
+}
 
-// .B2{
-//     border: 2px solid green;
-// }
+.B2{
+    border: 2px solid green;
+}
+
+.B3{
+    border: 2px solid blue;
+}
+
+.B4{
+    border: 2px solid hotpink;
+}
+
+.B5{
+    border: 2px solid purple;
+}
 
 .divtest{
     // background-color: #DEFCFC;
