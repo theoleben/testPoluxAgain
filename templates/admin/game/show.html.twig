@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Jeux{% endblock %}
+{% block title %}Jeu "{{ game.title }}"{% endblock %}
 
 {% block body %}
-    <h1>Jeux</h1>
+    <h1>Jeu "{{ game.title }}"</h1>
 
-    <table class="table">
+    <table class="table table-bordered text-center">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ game.title }}</td>
+                <td><strong>{{ game.title }}</strong></td>
             </tr>
             <tr>
                 <th>Prix à la location</th>
@@ -25,7 +25,6 @@
             </tr>
             <tr>
                 <th>Categorie</th>
-                {# meme boucle pour que template game pour l'affichage. #}
                 {% for cat in game.category %}
                     <td>{{ cat.name }}</td>
                 {% endfor %}
@@ -57,13 +56,23 @@
                 <th>Note</th>
                 <td>{{ game.grade }}</td>
             </tr>
+            <tr>
+                <th>Photo</th>
+                {% for picture in game.picture %}
+                    <td><img src="{{ '/images/' ~ picture.name }}" alt="{{picture.name}}"></td>
+                {% else %}
+                    <td>Pas encore de photo, veuillez en ajouter une</td>
+
+                {% endfor %}
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_game_index') }}"><button class="btn">{{ button_label|default('Retourner à la liste') }}</button></a><br>
+    <div class="row">
+        <a class="btn sm-btn btn-secondary" href="{{ path('app_admin_game_index') }}">Retourner à la liste</a><br>
 
-    <a href="{{ path('app_admin_game_edit', {'id': game.id}) }}"><button class="btn">{{ button_label|default('Modifier') }}</button></a>
+        <a class="btn btn-info" href="{{ path('app_admin_game_edit', {'id': game.id}) }}">Modifier</a>
 
-
-    {{ include('admin/game/_delete_form.html.twig') }}
+        {{ include('admin/game/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

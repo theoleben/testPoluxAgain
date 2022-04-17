@@ -30,10 +30,16 @@
         {{ include("header.html.twig") }}
         {{ include("menu.html.twig") }}
 
-        <div class="container">
+        {% block start_container %}
+            <div class="container">
+        {% endblock %}
+
             {% block body %}
             {% endblock %}
-        </div>
+
+        {% block end_container %}
+            </div>
+        {% endblock %}
 
         {{ include("footer.html.twig") }}
 	

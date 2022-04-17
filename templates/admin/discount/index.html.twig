@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Index de la reduction{% endblock %}
+{% block title %}Liste des réductions{% endblock %}
 
 {% block body %}
     <h1>Liste des réductions</h1>
 
-    <table class="table">
+    <table class="table table-bordered text-center">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,17 +19,20 @@
         {% for discount in discounts %}
             <tr>
                 <td>{{ discount.id }}</td>
-                <td>{{ discount.type }}</td>
+                <td>{{ discount.type }} %</td>
                 <td>{{ discount.validity }}</td>
                 <td>{{ discount.description }}</td>
                 <td>
                     <a href="{{ path('app_admin_discount_show', {'id': discount.id}) }}"><i class="fa fa-user"></i></a>
+
                     <a href="{{ path('app_admin_discount_edit', {'id': discount.id}) }}"><i class="fa fa-edit"></i></a>
+
+                    <a href="{{ path('app_admin_discount_delete', {'id': discount.id}) }}"><i class="fa-solid fa-trash-can"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">Pas de catégorie trouvée</td>
+                <td colspan="5">Aucune réduction trouvée</td>
             </tr>
         {% endfor %}
         </tbody>

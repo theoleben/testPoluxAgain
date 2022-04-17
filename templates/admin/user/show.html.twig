@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur{% endblock %}
+{% block title %}Fiche utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Fiche utilisateur</h1>
+    <h1>Fiche utilisateur de {{ user.prenom ~ " " ~ user.nom }}</h1>
 
-    <table class="table">
+    <table class="table table-bordered text-center">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>E-mail</th>
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
