@@ -55,8 +55,9 @@ class PictureController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_picture_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Picture $picture, PictureRepository $pictureRepository): Response
+    public function edit(Picture $picture,Request $request, PictureRepository $pictureRepository): Response
     {
+        $picture = $pictureRepository->find($picture);
         $form = $this->createForm(PictureType::class, $picture);
         $form->handleRequest($request);
 

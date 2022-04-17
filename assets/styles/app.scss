@@ -11,80 +11,198 @@ nav, .container_admin
     justify-content: space-evenly;
 }
 
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2{
+    padding:0;
+    margin:0;
+}
+
+h2{
+    color: #1CC5DC;
+}
+
 /* PARTIE HEADER */
 
 .divSuperman{
     background-color: #DEFCFC;
-}
-
-figure{
-    margin: 10px;
-    width: 600px;
-    overflow: hidden;
-}
-
-figcaption{
-    width:100%;
-    text-align:center;
-    z-index:1000;
-    // background-color: grey;
-}
-
-figure figcaption a{
-    color: white;
-    font-size: 50px;
-    text-decoration: none;
+    // height: 100px;
+    // position: absolute;
 }
 
 img{
-    height: 200px;
-    width: 200px;
+    height: 120px;
+    width: 120px;
 }
 
-.imgSuperman{
-    border: 1px solid hotpink;
-    // margin-left: 50%;
-    // align-content: center;
-    // height: 100px;
-    // width:100px;
-    // transition: 0.2s;
-    // transform: scale(1);
-}
-
-.imgSuperman:hover{
-    // margin-left: 500px;
-    // transition: ease-in 500ms;
+#divImg{
+    // position: relative;
+    left: 0;
 }
 
 .phraseMove{
-
-    // margin-left: 50px;
-    // transition: 0.2s;
-    // transform: scale(1);
+    font-family: 'Rubik Puddles', cursive;
+    font-weight: bold;
+    font-size: 25px;
+    color: #1CC5DC;
 }
 
-.phraseMove:hover{
-    // margin-left: 500px;
-    // transition: ease-in 500ms;
+
+.colornav {
+    background-color: #98DDCA;
 }
+
+.colortext, 
+.phead{
+    color: #3B14A7;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.h1header{
+    color: #3B14A7;
+    font-family: 'Sacramento', cursive;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+.h2header{
+    color:#1CC5DC;
+    font-family: 'Sacramento', cursive;
+    font-size: 56px;
+}
+
+.colorfa {
+    color: #98DDCA;
+}
+
 
 // .bordure{
 //     border: 1px solid black;
-//     height: 200px;
+//     // height: 200px;
 // }
 
 // .bordure2{
 //     border: 2px solid red;
-//     height: 200px;
+//     // height: 200px;
 // }
 
 // .bordure3{
-//     border: 2px solid green;
+//     border: 2px solid hotpink;
 // }
 
 // .bordure4{
 //     border: 2px solid purple;
 // }
 
+// .bordure5{
+//     border: 2px solid red;
+// }
+
+// .bordure6{
+//     border: 2px solid orange;
+//     // width: 500px;
+// }
+
+// .bordure7{
+//     border: 2px solid blue;
+    
+// }
+
+.bordure8{
+    // border: 2px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+// .bordure9{
+//     border: 2px solid green;
+// }
+
 
 /* FIN PARTIE HEADER */
+
+
+/* COMPOSANT NEWSLETTER */
+
+.titreNL{
+    color: #98DDCA;
+    font-weight: bold;
+}
+
+.sm-title-NL{
+    color: #98DDCA;
+    font-weight: bold;
+}
+
+// .border{
+//     border: 2px solid black;
+//     height: 200px;
+// }
+
+// .border1{
+//     border: 2px solid red;
+//     height: 200px;
+// }
+
+// .border2{
+//     border: 2px solid green;
+//     // height: 200px;
+// }
+
+// .border3{
+//     border: 2px solid orange;
+//     // height: 200px;
+// }
+
+// .border4{
+//     border: 2px solid blue;
+//     // height: 200px;
+// }
+
+
+/* FIN COMPOSANT NEWSLETTER */
+
+
+/* PAGE ACCUEIL */
+
+.title-Polux{
+    color:#3B14A7;
+}
+
+.ft{
+    color: #222831;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.B{
+    border: 2px solid lightgrey;
+    padding: 20px
+}
+
+.BGC{
+    background-color: #98DDCA ;
+}
+
+// .B1{
+//     border: 2px solid red;
+// }
+
+// .B2{
+//     border: 2px solid green;
+// }
+
+.divtest{
+    // background-color: #DEFCFC;
+    padding: 15px;
+    border-radius: 15px;
+    // height: 50px;
+    // width: 50px;
+}
+
+/* FIN PAGE ACCUEIL */

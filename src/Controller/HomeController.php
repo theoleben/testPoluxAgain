@@ -42,23 +42,22 @@ class HomeController extends AbstractController
         ]);
     }
 
-
     #[Route('/displayGame/{id}', name: 'app_onegame', methods: ['GET'])]
     public function displayOneGame($id, GameRepository $gameRepository ) : Response
     {
         $game = $gameRepository->find($id);
+        $games = $gameRepository->findAll();
 
         return $this->render('home/oneGame.html.twig', [
-            'game' => $game
+            'game' => $game,
+            'games' => $games
         ]);
     }
 
     #[Route('/contact', name: 'app_contact')]
     public function contact(): Response
     {
-        return $this->render('home/contact.html.twig', [
-            
-        ]);
+        return $this->render('home/contact.html.twig', []);
     }
 
     #[Route('/blog', name: 'app_blog')]
@@ -66,7 +65,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/blog.html.twig', []);
     }
-
+    
     #[Route('/cgv', name: 'app_cgv')]
     public function displaycgv(): Response
     {
@@ -78,7 +77,13 @@ class HomeController extends AbstractController
     {
         return $this->render('home/mentions_legales.html.twig',[]);
     }
-
+    
+    #[Route('/faq', name: 'app_faq')]
+    public function faq(): Response
+    {
+        return $this->render('home/faq.html.twig', []);
+    }
+    
     #[Route('/pdc', name: 'app_pdc')]
     public function displaypdc(): Response
     {
@@ -98,17 +103,14 @@ class HomeController extends AbstractController
     }
 
     #[Route('/label_qualite', name: 'app_label_qualite')]
-    public function displaylabel_qualite(): Response
+    public function displayLabelQualite(): Response
     {
         return $this->render('home/label_qualite.html.twig',[]);
     }
-
-
-
-
-
-
-
-
     
+    #[Route('/chezpolux', name: 'app_agence')]
+    public function agence(): Response
+    {
+        return $this->render('home/agence.html.twig', []);
+    }
 }

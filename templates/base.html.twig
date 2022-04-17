@@ -11,70 +11,39 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
        
         {% block stylesheets %}
-
             {{ encore_entry_link_tags('app') }}
-
-            
-
-
-{# 
-            <link rel="stylesheet" 
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
-            crossorigin="anonymous">
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  #}
-
-        <style>
-            /* ul,li{
-                list-style-type: none;
-                display: flex;
-                padding: 7px 15px;
-                color: #6D8299;
-                background-color:  #ABCDCB;
-            }
-
-            body{
-                background-color: #ABCDCB;
-                font-family: 'Montserrat', sans-serif;
-                font-size: 16px;
-                color: #6D8299;
-            }
-
-            h1{
-                font-family: 'Sacramento', cursive;
-                font-size: 64px;
-                color: #00AFC1;
-                font-weight: bold;
-            } */
-        </style>
-
-            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('blog') }}
+            {{ encore_entry_link_tags('faq') }}
+            {{ encore_entry_link_tags('oneGame') }}
         {% endblock %}
         
-
-        
-       
-        {% block javascripts %} 
-            {{ encore_entry_script_tags('app') }} 
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('blog') }}
+            {{ encore_entry_script_tags('faq') }}
+            {{ encore_entry_script_tags('oneGame') }}
         {% endblock %}
         
-        
-       
-    
     </head>
     <body>
+
         {{ include("header.html.twig") }}
         {{ include("menu.html.twig") }}
-        <div class="container">
-        {% block body %}
-        
+
+        {% block start_container %}
+            <div class="container">
         {% endblock %}
 
-        
-        </div>
+            {% block body %}
+            {% endblock %}
 
-        {{ include("parties/footer.html.twig") }}
+        {% block end_container %}
+            </div>
+        {% endblock %}
 
-	 </body>
-   </html>
+        {{ include("composantNewsLetter.html.twig") }}
+        {{ include("footer.html.twig") }}
+	
+	<script src="{{asset('../assets/test.js')}}"></script>
+    </body>
+</html>

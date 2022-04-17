@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Game;
+use App\Entity\Category;
+use App\Form\CategoryType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
@@ -40,7 +43,17 @@ class GameType extends AbstractType
                     new NotBlank([ 'message' => 'Ce champ ne peut être vide'])
                 ]
             ])
-            ->add('category') // voir la contrainte de EntityGame
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'label' => 'Catégorie',
+                'help' => 'Si aucune catégorie disponible, veuillez en créer une via "Ajouter une catégorie"',
+                'constraints' => [
+                    new NotBlank([ 'message' => 'Veuillez sélectionner une catégorie'])
+                ]
+            ]) // voir la contrainte de EntityGame
             ->add('age', TextType::class, [
                 'label' => 'Tranche d\'âge',
                 'constraints' => [
@@ -98,6 +111,20 @@ class GameType extends AbstractType
             ]
             ])
             ->add('grade')
+            ->add('name', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+                'label' => 'Photo', 
+                'help' => 'N\'oubliez pas de choisir une photo',
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [ "image/jpeg", "image/png", "image/gif"],
+                        "mimeTypesMessage" => "Les formats autorisés sont gif, png, jpg",
+                        'maxSize' => "2048k",
+                        'maxSizeMessage' => 'Le fichier ne peut pas peser plus de 2Mo'
+                    ])
+                ]
+            ])
         ;
     }
 
