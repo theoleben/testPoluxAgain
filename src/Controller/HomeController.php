@@ -97,6 +97,14 @@ class HomeController extends AbstractController
         return $this->render('home/recrutement.html.twig',[]);
     }
 
+    #[Route('/label_qualite', name: 'app_label_qualite')]
+    public function displaylabel_qualite(): Response
+    {
+        return $this->render('home/label_qualite.html.twig',[]);
+    }
+
+
+
 
 
 
