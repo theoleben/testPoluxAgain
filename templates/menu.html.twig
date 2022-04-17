@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{ path('app_login') }}">Bienvenue chez Polux</a>
+<nav class=" colornav navbar navbar-expand-lg">
+  {# <nav class=" navbar navbar-expand-lg navbar-light bg-light"> #}
+  <a class=" navbar-brand colortext" href="{{ path('app_login') }}">Bienvenue chez Polux</a>
   {% if app.user %}
     <li class="navbar-brand">
-      <a class="nav-link">{{app.user.prenom}}</a>
+      <a class="nav-link colortext">{{app.user.prenom}}</a>
     </li>
   {% endif %}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,53 +14,53 @@
     <ul class="navbar-nav mr-auto">
            
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
+                <a class="nav-link colortext" href="{{ path('app_home') }}">Accueil</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_display_game') }}">Nos jeux</a>
+                <a class="nav-link colortext" href="{{ path('app_display_game') }}">Nos jeux</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_display_game') }}">Meilleurs Jeux</a>
+                <a class="nav-link colortext" href="{{ path('app_display_game') }}">Meilleurs Jeux</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_display_subscription') }}">Abonnements</a>
+                <a class="nav-link colortext" href="{{ path('app_display_subscription') }}">Abonnements</a>
             </li>
 	    
 	        <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
+                <a class="nav-link colortext" href="{{ path('app_contact') }}">Contact</a>
             </li>
 	    
 	        <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_blog') }}">Blog</a>
+                <a class="nav-link colortext" href="{{ path('app_blog') }}">Blog</a>
             </li>
            
             {% if is_granted("ROLE_USER") %}
             
            
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_profil_index') }}">Mon espace</a>
+                    <a class="nav-link colortext" href="{{ path('app_profil_index') }}">Mon espace</a>
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link colortext" href="#">Contact</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
+                    <a class="nav-link colortext" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
                 </li>
 
             {% else %}
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i></a>
+                    <a class="nav-link colortext" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i></a>
                 </li>
 
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_login') }}"><i class="fa fa-sign-in"></i></a>
+                    <a class="nav-link colortext" href="{{ path('app_login') }}"><i class="fa fa-sign-in"></i></a>
                 </li>
 
             {% endif %}
@@ -68,41 +69,41 @@
         {% if is_granted("ROLE_ADMIN") %}
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_admin_user_index') }}">Gestion Membres</a>
+                <a class="nav-link colortext" href="{{ path('app_admin_user_index') }}">Gestion Membres</a>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Gestion Jeux
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ path('app_admin_game_index') }}">Liste des jeux</a>
-                  <a class="dropdown-item" href="{{ path('app_admin_game_new') }}">Ajouter un jeu</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_game_index') }}">Liste des jeux</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_game_new') }}">Ajouter un jeu</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{ path('app_admin_picture_index') }}">Liste des images</a>
-                  <a class="dropdown-item" href="{{ path('app_admin_picture_new') }}">Ajouter une image</a>
-                  <a class="dropdown-item" href="{{ path('app_admin_category_index') }}">Liste des catégories</a>
-                  <a class="dropdown-item" href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_picture_index') }}">Liste des images</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_picture_new') }}">Ajouter une image</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_category_index') }}">Liste des catégories</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a>
                 </div>
               </li>
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Gestion Abonnements
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ path('app_admin_subscription_index') }}">Liste des abonnements</a>
-                  <a class="dropdown-item" href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_subscription_index') }}">Liste des abonnements</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_subscription_new') }}">Ajouter un abonnement</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{ path('app_admin_discount_index') }}">Liste des réductions</a>
-                  <a class="dropdown-item" href="{{ path('app_admin_discount_new') }}">Ajouter une réduction</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_discount_index') }}">Liste des réductions</a>
+                  <a class="dropdown-item colortext" href="{{ path('app_admin_discount_new') }}">Ajouter une réduction</a>
                 </div>
               </li>
            
               </ul>
               <form class="form-inline my-2 my-lg-0" action="#">
                 <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit">Rechercher</button>
+                <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit">Rechercher</button>
               </form>       
     {% endif %}
     </div>
