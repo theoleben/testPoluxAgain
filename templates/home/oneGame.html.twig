@@ -39,19 +39,19 @@
             <div class="panel-body d-flex">
                 <div class="col-md-6">
                     <div class="pro-img-details">
-                        <img src="/images/superman-comics_625597a250bfe.jpg" alt="Ceci est l'image de polux" style="height: 325px">
+                        <img src="/images/superman-comics_625597a250bfe.jpg" alt="Ceci est l'image de polux" style="height: 325px; width:500px">
                     </div>
-                    <div class="pro-img-list">
-                        <a href="#">
+                    <div class="pro-img-list col">
+                        <a href="">
                             <img src="https://via.placeholder.com/115x100/87CEFA/000000" alt="">
                         </a>
-                        <a href="#">
+                        <a href="">
                         <img src="https://via.placeholder.com/115x100/FF7F50/000000" alt="">
                         </a>
-                        <a href="#">
+                        <a href="">
                             <img src="https://via.placeholder.com/115x100/20B2AA/000000" alt="">
                         </a>
-                        <a href="#">
+                        <a href="">
                             <img src="https://via.placeholder.com/120x100/20B2AA/000000" alt="">
                         </a>
                     </div>
@@ -104,7 +104,9 @@
 
         <div class="col-4 mt-4">
             <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                {% for picture in games.picture %}
+                <img class="card-img-top" src="{{ '/images/' ~ picture.name }}" height="90px" alt="Card image cap"> 
+                {% endfor %}
                 <div class="card-body">
                     <h5 class="card-title">{{games.title}}</h5>
                     <p class="card-text">Ceci est le train enchantté</p>

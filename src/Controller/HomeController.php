@@ -91,4 +91,11 @@ class HomeController extends AbstractController
         ]);
     }
 
+
+    #[Route('/chezpolux', name: 'app_agence')]
+    public function agence(): Response
+    {
+        return $this->render('home/agence.html.twig', [
+        ]);
+    }
 }
