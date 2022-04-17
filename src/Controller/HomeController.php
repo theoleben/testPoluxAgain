@@ -64,10 +64,9 @@ class HomeController extends AbstractController
     #[Route('/blog', name: 'app_blog')]
     public function blog(): Response
     {
-        return $this->render('home/blog.html.twig', [
-            
-        ]);
+        return $this->render('home/blog.html.twig', []);
     }
+
     #[Route('/cgv', name: 'app_cgv')]
     public function displaycgv(): Response
     {
@@ -79,6 +78,28 @@ class HomeController extends AbstractController
     {
         return $this->render('home/mentions_legales.html.twig',[]);
     }
+
+    #[Route('/pdc', name: 'app_pdc')]
+    public function displaypdc(): Response
+    {
+        return $this->render('home/pdc.html.twig',[]);
+    }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function displaycontact(): Response
+    {
+        return $this->render('home/contact.html.twig',[]);
+    }
+
+    #[Route('/recrutement', name: 'app_recrutement')]
+    public function displayrecrutement(): Response
+    {
+        return $this->render('home/recrutement.html.twig',[]);
+    }
+
+
+
+
 
 
     

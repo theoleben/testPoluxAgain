@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recrutement{% endblock %}
+
+{% block body %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Remplissez le formulaire ci-dessous </h2>
+            </div>
+        </div>
+        <br>
+        <div class="col-6 text-center">
+            <h4>* Champs obligatoires</h4>
+        </div><br>
+
+        <form action="" method="post">
+           
+            
+            <div class="form-group row text-center">
+                <label for="nom" class="col-sm-6 col-form-label">Nom *</label>
+                <div class="col-sm-2">
+                    <input type="text" name="nom" id="nom" required>
+                </div>
+            </div><br>
+
+            <div class="form-group row text-center">
+                <label for="prenom" class="col-sm-6 col-form-label">Prénom *</label>
+                <div class="col-sm-2">
+                    <input type="text" name="prenom" id="prenom" required>
+                </div>
+            </div><br>
+
+            <div class="form-group row text-center">
+                <label for="date" class="col-sm-6 col-form-label">Date de naissance *</label>
+                <div class="col-sm-2">
+                    <input type="date" name="date" id="date" required>
+                </div>
+            </div><br>
+
+            <div class="form-group row text-center">
+                <label for="tel" class="col-sm-6 col-form-label">Téléphone</label>
+                <div class="col-sm-2">
+                    <input type="text" name="tel" id="tel">
+                </div>
+            </div><br>
+            
+            <div class="form-group row text-center">
+                <label for="email" class="col-sm-6 col-form-label">E-mail *</label>
+                <div class="col-sm-2">
+                    <input type="email" name="email" id="email" required>
+                </div>
+            </div><br>
+
+            <div class="form-group row text-center">
+                <label for="message" class="col-sm-6 col-form-label">Votre message *</label>
+                <div class="col-sm-2">
+                    <textarea name="message" id="message" cols="45" rows="10"></textarea>
+                </div>
+            </div><br>
+
+            <div class="form-group row text-center">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
+            </div>
+            </div>
+        </form>
+        <br><br>
+    </div>
+    
+{% endblock %}
