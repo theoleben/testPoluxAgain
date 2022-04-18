@@ -76,6 +76,11 @@
                 {# END subscription #}
                 <li class="list-group-item">Date de souscription : {{ sub.startDate|date('d-m-Y') }}</li>
                 <li class="list-group-item">Utilisation de la réduction : {{ sub.isDiscountUsed }}</li>
+                
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Retourner mon colis</label>
+                </div>
                 </ul>
             {% else %}
                 <p>Il n'y a pas d'abonnements</p>
