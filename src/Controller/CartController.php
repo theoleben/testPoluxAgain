@@ -2,12 +2,16 @@
 
 namespace App\Controller;
 
+use DateTime;
+use App\Entity\TestCommand;
 use App\Repository\GameRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\TestCommandRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
 {
@@ -37,16 +41,39 @@ class CartController extends AbstractController
 
         // Théo
         $titre = $session->get( 'titre' , [] );
-        // $id_jeu = $session->get( 'id_jeu' , [] );
-        // $quantite = $session->get( 'quantite' , [] );
-        // $prix = $session->get( 'prix' , [] );
+        $id_jeu = $session->get( 'id_jeu' , [] );
+        $quantite = $session->get( 'quantite' , [] );
+        $prix = $session->get( 'prix' , [] );
+
+        $objects = [];
+
+        // Reorganization of data in session for display in twig
+        for ($i = 0; $i < count($titre); $i++)
+        {
+            $object = [ "titre" => $titre[$i], 
+                        "id_jeu" => $id_jeu[$i],
+                        "quantite" => $quantite[$i], 
+                        "prix" => $prix[$i] ];
+
+            $objects[] = $object;
+        }
+
+        dump($objects);
+
+        // foreach( $titre as $index => $value )
+        // {
+        //     $objects[] = 
+        // }
+        // $object = [ "titre" => $titre, "id" => $id_jeu, "quantite" => $quantite, "prix" => $prix ];
 
         dump($titre);
-        
-        dd($session);
 
-        return $this->render('cart/index.html.twig', [
-            "titres" => $titre
+        // dump($object);
+        
+        // dd($session);
+
+        return $this->render('cart/newTest.html.twig', [
+            "objects" => $objects
         ]);
     }
 
@@ -178,5 +205,44 @@ class CartController extends AbstractController
         $session->set('cart', $cart);
         return $this->redirectToRoute('app_cart');
     }
+
+    #[Route('/cart/validate', name: 'app_validate')]
+    public function validate( SessionInterface $session, EntityManagerInterface $entityManager )
+    {
+        $user = $this->getUser();
+
+        $new_command = new TestCommand();
+
+        $new_command->setType("rental");
+        $new_command->setUser( $user );
+
+        // Total_amount
+        // $titre = $session->get( 'titre' , [] );
+        // $id_jeu = $session->get( 'id_jeu' , [] );
+        $quantite = $session->get( 'quantite' , [] );
+        $prix = $session->get( 'prix' , [] );
+        
+        // dump($titre);
+        $total_amount = 0;
+
+        // Total amount calculation
+        for ($i = 0; $i < count($quantite); $i++)
+        {
+            $total_amount += $quantite[$i] * $prix[$i];
+        }
+
+        // dump( $total_amount );
+
+        $new_command->setTotalAmount( $total_amount );
+
+        $date = new DateTime();
     
+        $new_command->setCreatedAt( $date );
+
+        $entityManager->persist( $new_command );
+        $entityManager->flush();
+
+        // dd("stop");
+        return $this->redirectToRoute('app_cart');
+    }
 }

@@ -2,19 +2,35 @@
 
 {% block title %} Panier {% endblock %}
 
+{% block body %}
 <div>
     <h1>Votre panier</h1>
 </div>
 
-
 <table>
 
 <thead>
-    <tr>Titre</tr>
+    <th>Titre</th>
+    <th>Id</th>
+    <th>Quantité</th>
+    <th>Prix</th>
 </thead>
 
 <tbody>
 
+    {% for object in objects %}
+        <tr>
+            <td>{{ object.titre }}</td>
+            <td>{{ object.id_jeu }}</td>
+            <td>{{ object.quantite }}</td>
+            <td>{{ object.prix }}</td>
+        </tr>
+    {% endfor %}
+  
 </tbody>
 
 </table>
+
+<a class="btn btn-info" href="{{ path('app_validate') }}">Valider le panier</a><br>
+
+{% endblock %}
