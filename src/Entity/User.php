@@ -62,10 +62,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserSubscription::class)]
     private $userSubscriptions;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: TestCommand::class)]
+    private $testCommands;
+
     public function __construct()
     {
         $this->games = new ArrayCollection();
 	$this->userSubscriptions = new ArrayCollection();
+    $this->testCommands = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -305,6 +309,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($userSubscription->getUser() === $this) {
                 $userSubscription->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TestCommand>
+     */
+    public function getTestCommands(): Collection
+    {
+        return $this->testCommands;
+    }
+
+    public function addTestCommand(TestCommand $testCommand): self
+    {
+        if (!$this->testCommands->contains($testCommand)) {
+            $this->testCommands[] = $testCommand;
+            $testCommand->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTestCommand(TestCommand $testCommand): self
+    {
+        if ($this->testCommands->removeElement($testCommand)) {
+            // set the owning side to null (unless already changed)
+            if ($testCommand->getUser() === $this) {
+                $testCommand->setUser(null);
             }
         }
 
