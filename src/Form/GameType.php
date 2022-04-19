@@ -98,8 +98,8 @@ class GameType extends AbstractType
                 'label' => 'Description du jeu',
                 'constraints' => [
                 new Length([
-                    'max' => 50,
-                    'maxMessage' => 'Le nombre de caractères ne peut pas dépasser 50',
+                    'max' => 255,
+                    'maxMessage' => 'Le nombre de caractères ne peut pas dépasser 255',
                 ]),
                 new NotBlank([ 'message' => 'Ce champ ne peut être vide'])
             ]

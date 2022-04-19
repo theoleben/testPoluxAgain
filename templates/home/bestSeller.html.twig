@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block style %}{% endblock %}
+
+{% block body %}
+<h2 class="text-center">Voici une sélection de nos meilleures ventes</h2><br>
+{% for game in gamesPrice %}            
+    <div class="row">
+        <section class="panel col-12">
+            <h4 class="pro-d-title">
+                <h2>
+                    <strong>{{ game.title }}</strong>
+                </h2>
+            </h4><br>
+            <div class="panel-body d-flex">
+                <div class="col-md-6">
+                    <div class="pro-img-details">
+                    {% for picture in game.picture %}
+                        <img src="{{ '/images/' ~ picture.name }}" alt="{{ picture.name }}" style="height: 450px; width:500px">
+                    {% endfor %}
+                    </div>
+                </div>
+        
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div>
+                                <span>
+                                    <strong>Prix TTC : {{ game.sellingPrice }} €</strong>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <p class="product_meta">
+                        {{ game.description }}
+                    </p>
+                    <div class="m-bot15">
+                    {% for cate in game.category %}
+                    
+                        <span class="posted_in"> <strong>Categorie :</strong> <a rel="tag" href="#">{{cate.name}}</a></span>
+                    {% endfor %}
+                    </div><br>
+
+                    <div class="m-bot15"> <strong>Tranche d'age :</strong> <span class="amount">{{ game.age }}</span> </div><br>
+                    <div class="m-bot15"> <strong>Nombre de joueurs :</strong> <span class="amount">{{ game.nbPlayers }}</span> </div><br>
+                    <div class="m-bot15"> <strong>Temps du jeu :</strong> <span class="amount">{{ game.playTime }}</span> </div><br>
+                    <div class="m-bot15"> <strong>Matériaux :</strong> <span class="amount">{{ game.material }}</span> </div>
+                    <p>
+                    {% if app.user %}
+                        <div class="col-md-12">
+                            <a href="{{path('app_cart_add', {'id': game.id})}}" class="btn" style="background-color: #b5179e; color: white;"> Acheter</a>
+                            <a href="{{path('app_login')}}" class="btn btn-info btn-round" > Louer</a>
+                        </div>
+                    {% else %}
+                        <div class="col-md-12">
+                            <a href="{{path('app_login')}}" class="btn" style="background-color: #b5179e; color: white;"> Acheter</a>
+                            <a href="{{path('app_login')}}" class="btn btn-info btn-round" > Louer</a>
+                        </div>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <hr><br>
+{% endfor %}
+
+{% endblock %}

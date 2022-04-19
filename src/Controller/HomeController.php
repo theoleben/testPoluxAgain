@@ -54,6 +54,20 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/BestSeller', name: 'app_bestSeller')]
+    public function displayBestSeller(GameRepository $gameRepository): Response
+    {
+        $games = $gameRepository->findAll();
+        // $bestGames = $gameRepository->findBy(array(), array('title' => 'ASC'), 5, null);
+        $gamesPrice = $gameRepository->findByGames(5);
+
+        return $this->render('home/bestSeller.html.twig', [
+            'games' => $games,
+            // 'bestGames' => $bestGames,
+            'gamesPrice' => $gamesPrice
+        ]);
+    }
+
     #[Route('/contact', name: 'app_contact')]
     public function contact(): Response
     {

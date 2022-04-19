@@ -1,31 +1,29 @@
-$duration : 10s;
 $space : 10px;
 
 .bandeau{
- background-color: #98DDCA;
- ;
+ background-color: #3B14A7;
  text-align: center;
- font-size: 16px;
+ font-size: 6px;
  color: white;
  text-transform: uppercase;
- padding: 26px;
  font-family: 'Open Sans', sans-serif;
  font-weight: bold;
  overflow: hidden;
+ max-height: 100px;
   
   .banner-body{    
     position:relative;
-    animation: defilement 10s infinite   linear;
+    animation: defilement 20s infinite linear;
     display: inline-block;
     font-size: 2rem;
     white-space: nowrap;
+    
   }
   
  img{
    position:relative;
    margin-right: $space;
-   width:60px;
-   
+   width:90px;
  }
   
  p{
@@ -35,12 +33,13 @@ $space : 10px;
   .bandeau-text{
      position:relative;
    margin-right: $space;
-   width:30px;
+   width:10px;
+   font-family: 'Rubik Puddles', cursive;
   }
 }
 
 @keyframes defilement {
   0% { margin-left: 100%; }
-  100% { margin-left: -150%; }
+  100% { margin-left: -120%; }
 }
 

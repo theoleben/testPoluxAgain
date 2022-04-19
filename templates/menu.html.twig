@@ -22,7 +22,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link colortext" href="{{ path('app_display_game') }}">Meilleurs Jeux</a>
+                <a class="nav-link colortext" href="{{ path('app_bestSeller') }}">Meilleurs Jeux</a>
             </li>
 
             <li class="nav-item">
@@ -73,19 +73,19 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Gestion Jeux
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item colortext" href="{{ path('app_admin_game_index') }}">Liste des jeux</a>
-                  <a class="dropdown-item colortext" href="{{ path('app_admin_game_new') }}">Ajouter un jeu</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item colortext" href="{{ path('app_admin_picture_index') }}">Liste des images</a>
-                  <a class="dropdown-item colortext" href="{{ path('app_admin_picture_new') }}">Ajouter une image</a>
-                  <a class="dropdown-item colortext" href="{{ path('app_admin_category_index') }}">Liste des catégories</a>
-                  <a class="dropdown-item colortext" href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a>
-                </div>
-              </li>
+              <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Gestion Jeux
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item colortext" href="{{ path('app_admin_game_index') }}">Liste des jeux</a>
+                <a class="dropdown-item colortext" href="{{ path('app_admin_game_new') }}">Ajouter un jeu</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item colortext" href="{{ path('app_admin_picture_index') }}">Liste des images</a>
+                <a class="dropdown-item colortext" href="{{ path('app_admin_picture_new') }}">Ajouter une image</a>
+                <a class="dropdown-item colortext" href="{{ path('app_admin_category_index') }}">Liste des catégories</a>
+                <a class="dropdown-item colortext" href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a>
+              </div>
+            </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,13 +99,12 @@
                   <a class="dropdown-item colortext" href="{{ path('app_admin_discount_new') }}">Ajouter une réduction</a>
                 </div>
               </li>
-           
+            {% endif %}
               </ul>
-              <form class="form-inline my-2 my-lg-0" action="#">
-                <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit">Rechercher</button>
+              <form class="form-inline my-2 my-lg-0" action="{{ path('app_search') }}">
+                <input name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher un jeu..." aria-label="search">
+                <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>       
-    {% endif %}
     </div>
 </nav>
 <br><br><br>
