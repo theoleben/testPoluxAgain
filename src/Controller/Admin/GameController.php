@@ -73,4 +73,14 @@ class GameController extends AbstractController
 
         return $this->redirectToRoute('app_admin_game_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
+
+    // #[Route('/OneGame', name: 'home/oneGamehtmltwig', methods: [])]
+    // public function boucleonegame(GameRepository $gameRepository): Response
+    // {
+    //     return $this->render('admin/Onegame/index.html.twig', [
+    //         'game' => $gameRepository->findBy([], ['id' => 'DESC'], 3),
+    //     ]);
+    // }
 }

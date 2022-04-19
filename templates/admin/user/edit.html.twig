@@ -5,9 +5,11 @@
 {% block body %}
     <h1>Modifier l'utilisateur</h1>
 
-    {{ include('admin/user/_form.html.twig', {'button_label': 'Enregistrer'}) }} <br>
+    {{ include('admin/user/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    {{ include('admin/user/_delete_form.html.twig') }}<br>
 
     <a class="btn btn-info" href="{{ path('app_admin_user_index') }}">Retourner à la liste</a><br>
 
-    {{ include('admin/user/_delete_form.html.twig') }}
+    
 {% endblock %}

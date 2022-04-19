@@ -47,10 +47,12 @@ class HomeController extends AbstractController
     {
         $game = $gameRepository->find($id);
         $games = $gameRepository->findAll();
+        $stock = $gameRepository->findByStock(6);
 
         return $this->render('home/oneGame.html.twig', [
             'game' => $game,
-            'games' => $games
+            'games' => $games,
+            'stock' => $stock
         ]);
     }
 

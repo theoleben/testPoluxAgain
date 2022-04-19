@@ -45,7 +45,7 @@ class GameType extends AbstractType
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'name',
+                'choice_label' => 'name', 
                 'multiple' => true,
                 'expanded' => false,
                 'label' => 'Catégorie',
@@ -81,7 +81,7 @@ class GameType extends AbstractType
                     'max' => 50,
                     'maxMessage' => 'Le nombre de caractères ne peut pas dépasser 50',
                 ]),
-                new NotBlank([ 'message' => 'Ce champ ne peut être vide'])
+                new NotBlank([ 'message' => 'Ce champ ne peut être vide !'])
             ]
             ])
             ->add('material', TextType::class, [
@@ -98,8 +98,8 @@ class GameType extends AbstractType
                 'label' => 'Description du jeu',
                 'constraints' => [
                 new Length([
-                    'max' => 50,
-                    'maxMessage' => 'Le nombre de caractères ne peut pas dépasser 50',
+                    'max' => 300,
+                    'maxMessage' => 'Le nombre de caractères ne peut pas dépasser 300',
                 ]),
                 new NotBlank([ 'message' => 'Ce champ ne peut être vide'])
             ]

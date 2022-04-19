@@ -4,85 +4,75 @@
 
 {% block body %}
 
-<div class="bootdey">
+           
     <div class="row">
         <section class="panel col-12">
+            <h4 class="pro-d-title">
+                <h2>
+                    <strong>{{ game.title }}</strong>
+                </h2>
+            </h4><br>
             <div class="panel-body d-flex">
                 <div class="col-md-6">
                     <div class="pro-img-details">
-                        <img src="/images/superman-comics_625597a250bfe.jpg" alt="Ceci est l'image de polux" style="height: 325px; width:500px">
-                    </div>
-                    <div class="pro-img-list col">
-                        <a href="">
-                            <img src="https://via.placeholder.com/115x100/87CEFA/000000" alt="">
-                        </a>
-                        <a href="">
-                        <img src="https://via.placeholder.com/115x100/FF7F50/000000" alt="">
-                        </a>
-                        <a href="">
-                            <img src="https://via.placeholder.com/115x100/20B2AA/000000" alt="">
-                        </a>
-                        <a href="">
-                            <img src="https://via.placeholder.com/120x100/20B2AA/000000" alt="">
-                        </a>
+                    {% for picture in game.picture %}
+                        <img src="{{ '/images/' ~ picture.name }}" alt="{{ picture.name }}" style="height: 450px; width:500px">
+                    {% endfor %}
                     </div>
                 </div>
         
                 <div class="col-md-6">
-                    <h4 class="pro-d-title">
-                        <h3>
-                                {{ game.title }}
-                        </h3>
-                    </h4>
-                    <p>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div>
+                                <span>
+                                    <strong>Prix TTC : {{ game.sellingPrice }} €</strong>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <p class="product_meta">
                         {{ game.description }}
-                    </p><hr>
-                    <div class="product_meta">
+                    </p>
+                    <div class="m-bot15">
                     {% for cate in game.category %}
                     
-                        <span class="posted_in"> <strong>Categories:</strong> <a rel="tag" href="#">{{cate.name}}</a>, <a rel="tag" href="#">Jeu de stratégie</a>, <a rel="tag" href="#">Fait en France</a>, </a>.</span>
-                        
-                    </div><br>
+                        <span class="posted_in"> <strong>Categorie :</strong> <a rel="tag" href="#">{{cate.name}}</a></span>
                     {% endfor %}
+                    </div><br>
 
-                    <div class="m-bot15"> <strong>Tranche d'age :</strong> <span class="amount-old">{{ game.age }}</span> </div><br>
-                    <div class="m-bot15"> <strong>Nombre de joueurs :</strong> <span class="amount-old">{{ game.nbPlayers }}</span> </div><br>
-                    <div class="m-bot15"> <strong>Temps du jeu :</strong> <span class="amount-old">{{ game.playTime }}</span> </div><br>
-                    <div class="m-bot15"> <strong>Matériaux :</strong> <span class="amount-old">{{ game.material }}</span> </div><br>
-                
-                    
-                    <div class="form-group">
-                        <div class="m-bot15"> <strong>Location : </strong> <span class="amount-old">{{ game.rentalPrice }} €</span></div><br>
-                    <div class="form-group">
-                        <div class="m-bot15"> <strong>Prix TTC : </strong> <span class="amount-old">{{ game.sellingPrice }} €</span></div><br>
-                        
-                        <p>
-                            <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Ajouter au panier</button>
-                            <button class="btn btn-round btn-info" type="submit">Acheter</button>
-                            <button class="btn btn-round btn-secondary" type="submit">Louer</button>
-                        </p>
+                    <div class="m-bot15"> <strong>Tranche d'age :</strong> <span class="amount">{{ game.age }}</span> </div><br>
+                    <div class="m-bot15"> <strong>Nombre de joueurs :</strong> <span class="amount">{{ game.nbPlayers }}</span> </div><br>
+                    <div class="m-bot15"> <strong>Temps du jeu :</strong> <span class="amount">{{ game.playTime }}</span> </div><br>
+                    <div class="m-bot15"> <strong>Matériaux :</strong> <span class="amount">{{ game.material }}</span> </div>
+                    <p>
+                        <div class="col-md-12">
+                        <button class="btn btn-round btncolor" type="submit" style="background-color: #b5179e; color: white;">Acheter</button>
+                        <button class="btn btn-round btn-info" type="submit">Louer</button>
                     </div>
+                    </p>
                 </div>
             </div>
         </section>
-    </div>
-</div>
-
+    </div><br><br>
+<h2 class="text-center">Nos suggestions de jeux pour vous</h2>
 <div class=" row card-group d-flex flex-wrap justify-content-around">
-    {% for games in games %}
+    {% for games in stock %}
         <div class="col-4 mt-4">
             <div class="card">
                 {% for picture in games.picture %}
-                <img class="card-img-top" src="{{ '/images/' ~ picture.name }}" height="90px" alt="Card image cap"> 
+                <a href="{{ path('app_onegame', { id:games.id } )}}"><img class="card-img-top" src="{{ '/images/' ~ picture.name }}" height="90px" alt="Card image cap"></a> 
                 {% endfor %}
                 <div class="card-body">
-                    <h5 class="card-title">{{games.title}}</h5>
-                    <p class="card-text">Ceci est le train enchantté</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title text-center"><a href="{{ path('app_onegame', { id:games.id } )}}">{{games.title}}</a></h5>
+                    {# <p class="card-text">Ceci est le train enchantté</p>
+                    <p class="card-text"><small class="text-muted"></small></p> #}
                 </div>
             </div>
         </div>
     {% endfor %}
-</div>
+</div><br><br>
 
 {% endblock %}
