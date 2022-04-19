@@ -90,9 +90,9 @@
                         {% endfor %}
                         <div class="card-body row">
                             <h5 class="card-title col-12"><a href="{{path('app_onegame', {'id': game.id})}}"><strong> {{ game.title }}</strong></a></h5>
-                            <div class="col-6"><a href="#" class="btn btn-primary"> Louer</a><div>{{ game.rentalPrice }} €</div></div>
+                            <div class="col-6"><a href="{{path('app_cart_add', {'id': game.id, 'str': 'renting'} )}}" class="btn btn-primary"> Louer</a><div>{{ game.rentalPrice }} €</div></div>
                             
-                            <div class="col-6"><a href="{{path('app_cart_add', {'id': game.id})}}" class="btn btn-primary"> Acheter</a><div>{{ game.sellingPrice }} €</div></div>
+                            <div class="col-6"><a href="{{path('app_cart_add', {'id': game.id, 'str': 'purchase'} )}}" class="btn btn-primary"> Acheter</a><div>{{ game.sellingPrice }} €</div></div>
                         </div>
                     </div> 
                 {% endif %}
