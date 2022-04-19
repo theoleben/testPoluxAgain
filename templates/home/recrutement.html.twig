@@ -3,7 +3,9 @@
 {% block title %}Recrutement{% endblock %}
 
 {% block body %}
-    <br>
+    
+    <h1 class="text-center">Recrutement</h1><br><br><br>
+
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -15,7 +17,7 @@
             <h4>* Champs obligatoires</h4>
         </div><br>
 
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
            
             
             <div class="form-group row text-center">
@@ -52,6 +54,14 @@
                     <input type="email" name="email" id="email" required>
                 </div>
             </div><br>
+
+            <div class="form-group row text-center">
+                <label for="file" class="col-sm-6 col-form-label">CV *</label>
+                <div class="col-sm-2">
+                    <input type="file" name="file" id="file" required accept="pdf">
+                </div>
+            </div><br>
+
 
             <div class="form-group row text-center">
                 <label for="message" class="col-sm-6 col-form-label">Votre message *</label>
