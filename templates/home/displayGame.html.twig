@@ -6,6 +6,14 @@
 {% block end_container %}{% endblock %}
 {% block body %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-9">
+            <h2>Tous nos jeux de sociétés</h2>
+        </div>
+    </div><br>
 <div class="row">
     <div class="col-3">
         <div class="col-12">
@@ -15,7 +23,7 @@
             </div><hr>
             <div>
                 <h4>Jeux</h4>
-                <ul>
+                <ul class="list-unstyled">
                     {% for cat in categories %}
                     <li><input type="checkbox" name="search" aria-label="{{cat}}"> {{cat}}</li>
                     {% endfor %}
@@ -24,7 +32,7 @@
 
             <div>
                 <h4>Tranche d'âge</h4>
-                <ul>
+                <ul class="list-unstyled">
                     <li><input type="checkbox"> 0/3</li>
                     <li><input type="checkbox"> 4/6</li>
                     <li><input type="checkbox"> 7/9</li>
@@ -36,7 +44,7 @@
 
             <div>
             <h4>Nombre de joueurs</h4>
-            <ul>
+            <ul class="list-unstyled">
                 <li><input type="checkbox"> 1</li>
                 <li><input type="checkbox"> 2</li>
                 <li><input type="checkbox"> 3</li>
@@ -48,7 +56,7 @@
 
             <div>
                 <h4>Temps de jeu</h4>
-                <ul>
+                <ul class="list-unstyled">
                     <li><input type="checkbox"> moins de 15 minutes</li>
                     <li><input type="checkbox"> 30 minutes</li>
                     <li><input type="checkbox"> 45 minutes</li>
@@ -65,7 +73,7 @@
     <div class="col-9">
         <div class="col-12">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" style="width: 1208px;">
+                <div class="carousel-inner" style="width: 100%;">
                     <div class="carousel-item active" >
                         <img src="https://cdn.pixabay.com/photo/2016/10/13/15/38/play-1738065_1280.jpg" class="d-block w-100" alt="..." style="height: 18rem;">
                     </div>
@@ -78,27 +86,33 @@
                 </div>
             </div>
         </div>
-        <br>
-        <div class="col-12 card-columns d-flex flex-wrap">
+        <br><br><br>
+        <div class="col-12 card-columns d-flex justify-content-around flex-wrap">
             {% for game in games %}
                 {% if game.picture is empty%}
             
                 {% else %}
-                    <div class="card text-center" style="width: 18rem;">
+                    <div class="card text-center mb-5" style="width: 18rem;">
                         {% for picture in game.picture %}
-                            <a href="{{path('app_onegame', {'id': game.id})}}"><img src="{{ '/images/' ~ picture.name }}" alt="{{ picture.name }}" class="card-img-top" style="height: 18rem;"></a>
+                            <a href="{{path('app_onegame', {'id': game.id})}}"><img src="{{ '/images/' ~ picture.name }}" alt="{{ picture.name }}" class="card-img-top" style="height: 12rem;"></a>
                         {% endfor %}
                         <div class="card-body row">
                             <h5 class="card-title col-12"><a href="{{path('app_onegame', {'id': game.id})}}"><strong> {{ game.title }}</strong></a></h5>
-                            <div class="col-6"><a href="{{path('app_cart_add', {'id': game.id, 'str': 'renting'} )}}" class="btn btn-info"> Louer</a><div>{{ game.rentalPrice }} €</div></div>
-                            
-                            <div class="col-6"><a href="{{path('app_cart_add', {'id': game.id, 'str': 'purchase'} )}}" class="btn btn-danger"> Acheter</a><div>{{ game.sellingPrice }} €</div></div>
+			    
+			                {% if app.user %}
+                            	<div class="col-6"><a href="{{path('app_cart_add', {'id': game.id, 'str': 'renting'} )}}" class="btn btn-info" > Louer</a></div>
+                            	<div class="col-6"><a href="{{path('app_cart_add', {'id': game.id, 'str': 'purchase'} )}}" class="btn" style="background-color: #b5179e; color: white;"> Acheter</a><div>{{ game.sellingPrice }} €</div></div>
+                            {% else %}
+                            	<div class="col-6"><a href="{{path('app_login')}}" class="btn btn-info" > Louer</a></div>
+                            	<div class="col-6"><a href="{{path('app_login')}}" class="btn" style="background-color: #b5179e; color: white;"> Acheter</a><div>{{ game.sellingPrice }} €</div></div>
+                            {% endif %}
                         </div>
                     </div> 
                 {% endif %}
             {% endfor %}
         </div>
     </div>
+</div>
 </div>
 
 {% endblock %}

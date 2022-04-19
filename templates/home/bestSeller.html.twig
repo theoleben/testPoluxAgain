@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Affichage des jeux{% endblock %}
+{% block style %}{% endblock %}
 
 {% block body %}
-
-           
+<h2 class="text-center">Voici une sélection de nos meilleures ventes</h2><br>
+{% for game in gamesPrice %}            
     <div class="row">
         <section class="panel col-12">
             <h4 class="pro-d-title">
@@ -48,10 +48,6 @@
                     <div class="m-bot15"> <strong>Temps du jeu :</strong> <span class="amount">{{ game.playTime }}</span> </div><br>
                     <div class="m-bot15"> <strong>Matériaux :</strong> <span class="amount">{{ game.material }}</span> </div>
                     <p>
-                        {# <div class="col-md-12">
-                        <button class="btn btn-round btncolor" type="submit" style="background-color: #b5179e; color: white;">Acheter</button>
-                        <button class="btn btn-round btn-info" type="submit">Louer</button> #}
-
                         {% if app.user %}
                             <div class="col-md-12">
                                 <a href="{{path('app_cart_add', {'id': game.id, 'str': 'renting'} )}}" class="btn btn-info btn-round" > Louer</a>
@@ -63,28 +59,12 @@
                                 <a href="{{path('app_login')}}" class="btn" style="background-color: #b5179e; color: white;"> Acheter</a>
                             </div>
                         {% endif %}
-                    </div>
                     </p>
                 </div>
             </div>
         </section>
-    </div><br><br>
-<h2 class="text-center">Nos suggestions de jeux pour vous</h2>
-<div class=" row card-group d-flex flex-wrap justify-content-around">
-    {% for games in stock %}
-        <div class="col-4 mt-4">
-            <div class="card">
-                {% for picture in games.picture %}
-                <a href="{{ path('app_onegame', { id:games.id } )}}"><img class="card-img-top" src="{{ '/images/' ~ picture.name }}" height="90px" alt="Card image cap"></a> 
-                {% endfor %}
-                <div class="card-body">
-                    <h5 class="card-title text-center"><a href="{{ path('app_onegame', { id:games.id } )}}">{{games.title}}</a></h5>
-                    {# <p class="card-text">Ceci est le train enchantté</p>
-                    <p class="card-text"><small class="text-muted"></small></p> #}
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-</div><br><br>
+    </div>
+    <hr><br>
+{% endfor %}
 
 {% endblock %}

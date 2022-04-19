@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste des jeux{% endblock %}
-
+    {% block start_container %}
+        <div class="container-fluid">
+    {% endblock %}
 {% block body %}
     <h1>Liste des jeux</h1>
 
@@ -69,4 +71,7 @@
     
 
     <a class="btn btn-info" href="{{ path('app_admin_game_new') }}">Ajouter un nouveau jeu</a>
+{% endblock %}
+{% block end_container %}
+    </div>
 {% endblock %}

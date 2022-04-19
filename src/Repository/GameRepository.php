@@ -22,6 +22,33 @@ class GameRepository extends ServiceEntityRepository
     }
 
     /**
+     * @return Game[] Returns an array of Game objects
+     */
+    public function findByGames($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.stock < :val')
+            ->setParameter('val', $value)
+            ->orderBy('g.title', 'ASC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findBySearch($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.title LIKE :val')
+            ->setParameter('val', '%' . $value . '%')
+            ->orderBy('g.title', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+
+    /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
