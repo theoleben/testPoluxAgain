@@ -26,7 +26,7 @@
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.prenom }}</td>
                 <td>{{ user.nom }}</td>
-                <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ user.dateNaissance ? user.dateNaissance|date('d/m/Y') : '' }}</td>
                 <td>{{ user.inscriptionNewsletter }}</td>
                 <td>
                     <a href="{{ path('app_admin_user_show', {'id': user.id}) }}"><i class="fa fa-user"></i></a>

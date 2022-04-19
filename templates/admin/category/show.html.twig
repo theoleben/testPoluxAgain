@@ -18,11 +18,11 @@
         </tbody>
     </table>
 
-    <div class="row">
-        <a href="{{ path('app_admin_category_index') }}"><button class="btn btn-secondary">{{ button_label|default('Retourner à la liste') }}</button></a><br>
+        
 
-        <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}"><button class="btn btn-info">{{ button_label|default('Modifier la catégorie') }}</button></a>
+        <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}"><button class="btn btn-info">{{ button_label|default('Modifier') }}</button></a><br><br>
 
-        {{ include('admin/category/_delete_form.html.twig') }}
-    </div>
+        {{ include('admin/category/_delete_form.html.twig') }}<br>
+
+        <a href="{{ path('app_admin_category_index') }}"><button class="btn btn-secondary">{{ button_label|default('Retourner à la liste') }}</button></a>
 {% endblock %}

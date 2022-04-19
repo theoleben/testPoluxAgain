@@ -29,10 +29,10 @@
                             <span class="ft">Rechercher un jeu<span><br><br>
                         {# </div> #}
 
-                        <form class="form-inline my-2 my-lg-0" action="#">
-                            <input name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                            <form class="form-inline my-2 my-lg-0" action="{{ path('app_search') }}">
+                            <input name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher un jeu..." aria-label="search">
                             <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit">Rechercher</button>
-                          </form><br>
+                            </form><br>
 
                         <div class="col-auto my-1">
                             <div class="custom-control custom-checkbox mr-sm-2">

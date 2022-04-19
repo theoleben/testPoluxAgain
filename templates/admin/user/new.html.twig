@@ -24,6 +24,6 @@
     {% endif %}
     {% endfor %} #}
 
-    {{ include('admin/user/_form.html.twig') }}
-    <a class="btn btn-info" href="{{ path('app_admin_user_index') }}">Retourner à la liste</a><br>
+    {{ include('admin/user/_form.html.twig') }}<br>
+    <a class="btn btn-secondary" href="{{ path('app_admin_user_index') }}">Retourner à la liste</a><br>
 {% endblock %}

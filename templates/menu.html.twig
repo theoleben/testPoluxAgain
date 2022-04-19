@@ -1,68 +1,70 @@
 <nav class=" colornav navbar navbar-expand-lg">
     {# <nav class=" navbar navbar-expand-lg navbar-light bg-light"> #}
     <a class=" navbar-brand colortext" href="{{ path('app_login') }}">Bienvenue chez Polux</a>
-    {% if app.user %}
-        <li class="navbar-brand">
-            <a class="nav-link colortext">{{app.user.prenom}}</a>
-        </li>
-  {% endif %}
+    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
   {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> #}
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% if app.user %}
+                <li class="navbar-brand">
+                    <a class="nav-link colortext">{{app.user.prenom}}</a>
+                </li>
+            {% endif %}
 
-        <li class="nav-item">
-            <a class="nav-link colortext" href="{{ path('app_home') }}">Accueil</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link colortext" href="{{ path('app_agence') }}">Notre agence</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link colortext" href="{{ path('app_display_game') }}">Nos jeux</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link colortext" href="{{ path('app_bestSeller') }}">Meilleurs Jeux</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link colortext" href="{{ path('app_display_subscription') }}">Abonnements</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link colortext" href="{{ path('app_contact') }}">Contact</a>
-        </li>
-	  
-        {% if is_granted("ROLE_USER") %}
-            
-            <li class="nav-item">
-                <a class="nav-link colortext" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
+            <li class="navbar-brand">
+                <a class="nav-link colortext" href="{{ path('app_home') }}">Accueil</a>
             </li>
 
-        {% else %}
-
-            <li class="nav-item">
-                <a class="nav-link colortext" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link colortext" href="{{ path('app_login') }}"><i class="fa fa-sign-in"></i></a>
+            <li class="navbar-brand">
+                <a class="nav-link colortext" href="{{ path('app_agence') }}">Notre agence</a>
             </li>
 
-        {% endif %}
+            <li class="navbar-brand">
+                <a class="nav-link colortext" href="{{ path('app_display_game') }}">Nos jeux</a>
+            </li>
 
+            <li class="navbar-brand">
+                <a class="nav-link colortext" href="{{ path('app_bestSeller') }}">Meilleurs Jeux</a>
+            </li>
+
+            <li class="navbar-brand">
+                <a class="nav-link colortext" href="{{ path('app_display_subscription') }}">Abonnements</a>
+            </li>
+
+            <li class="navbar-brand">
+                <a class="nav-link colortext" href="{{ path('app_contact') }}">Contact</a>
+            </li>
+        
+            {% if is_granted("ROLE_USER") %}
+                
+                <li class="navbar-brand">
+                    <a class="nav-link colortext" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
+                </li>
+
+            {% else %}
+
+                <li class="navbar-brand">
+                    <a class="nav-link colortext" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i></a>
+                </li>
+                <li class="navbar-brand">
+                    <a class="nav-link colortext" href="{{ path('app_login') }}"><i class="fa fa-sign-in"></i></a>
+                </li>
+
+            {% endif %}
+                {# <form class="form-inline my-2 my-lg-0" action="#">
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit">Rechercher</button>
+                </form>  #}
+        </ul>
         <form class="form-inline my-2 my-lg-0 ml-5" action="{{ path('app_search') }}">
             <input name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher un jeu..." aria-label="search">
             <button class="btn btn-secondary btn-sm my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-
-            {# <form class="form-inline my-2 my-lg-0" action="#">
-                <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit">Rechercher</button>
-            </form>  #}
     </div>
 </nav>
    
@@ -75,11 +77,11 @@
       <a class="nav-link colortext">{{app.user.prenom}}</a>
     </li>
   {% endif %} #}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupported" aria-controls="navbarSupported" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupported">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item px-3">
                     <a class="nav-link colortext" href="{{ path('app_admin_user_index') }}">Gestion Membres</a>
