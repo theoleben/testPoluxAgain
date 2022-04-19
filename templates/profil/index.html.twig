@@ -24,7 +24,7 @@
             <li class="list-group-item">Votre numéro de téléphone: {{app.user.phone}}</li>
 
             
-            <li class="list-group-item"><a class="btn btn-secondary" href="{{ path('app_profil_edit', {'id': app.user.id}) }}">Modifier mes informations</a></li>
+            <li class="list-group-item"><a class="btn btn-info" href="{{ path('app_profil_edit', {'id': app.user.id}) }}">Modifier mes informations</a></li>
 
             <br>
             <li class="list-group-item">{{include('profil/_delete_form.html.twig')}}</li>

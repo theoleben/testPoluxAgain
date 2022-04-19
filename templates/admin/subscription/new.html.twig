@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Créer un nouvel abonnement</h1>
 
-    {{ include('admin/subscription/_form.html.twig') }}
+    {{ include('admin/subscription/_form.html.twig') }}<br>
 
-    <a class="btn btn-info" href="{{ path('app_admin_subscription_index') }}">Retourner à la liste</a><br>
+    <a class="btn btn-secondary" href="{{ path('app_admin_subscription_index') }}">Retourner à la liste</a><br>
 {% endblock %}

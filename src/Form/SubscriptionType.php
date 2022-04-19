@@ -18,10 +18,18 @@ class SubscriptionType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre'
             ])
-            ->add('games_number')
-            ->add('price')
-            ->add('new_duration')
-            ->add('shipping_cost')
+            ->add('games_number', TextType::class, [
+                'label' => 'Nombre de jeux'
+            ])
+            ->add('price', TextType::class, [
+                'label' => 'Prix'
+            ])
+            ->add('new_duration', TextType::class, [
+                'label' => 'Durée de la nouvelle'
+            ])
+            ->add('shipping_cost', TextType::class, [
+                'label' => 'Frais de livraison'
+            ])
             ->add('description')
             ->add('discount', EntityType::class, [
                 'class' => Discount::class,

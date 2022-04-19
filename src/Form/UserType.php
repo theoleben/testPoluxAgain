@@ -10,7 +10,9 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -46,9 +48,14 @@ class UserType extends AbstractType
                 'label_format' => 'Adresse de Livraison',
                 
             ])
-        ->add('zip_code', null )
-        ->add('city', null )
+        ->add('zip_code', IntegerType::class, [
+            'label' => "Code Postal",
+        ])
+        ->add('city', TextType::class, [
+            'label' => "Ville",
+        ])
         ->add('phone', TextareaType::class, [
+            'label' => "Téléphone",
                 'constraints' => [
                     new Regex([
                         'pattern' => "/^[0-9\-\(\)\/\+\s]*$/",
