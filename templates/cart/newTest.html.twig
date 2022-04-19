@@ -7,45 +7,46 @@
     <h1>Votre panier</h1>
 </div>
 
-<table>
+{% if objects|length > 0 or rentalObjects|length > 0 %}
+    <table class="table table-bordered text-center mt-5 mb-5">
 
-<thead>
-    <th>Type</th>
-    <th>Titre</th>
-    <th>Id</th>
-    <th>Quantité</th>
-    <th>Prix</th>
-</thead>
+        <thead>
+            <th>Type</th>
+            <th>Titre</th>
+            {# <th>Id</th> #}
+            <th>Quantité</th>
+            <th>Prix</th>
+        </thead>
 
-<tbody>
+        <tbody>
+            {# Purchase #}
+            {% for object in objects %}
+                <tr>
+                    {# <td>{{ object.type }}</td> #}
+                    <td>Achat</td>
+                    <td>{{ object.titre }}</td>
+                    {# <td>{{ object.id_jeu }}</td> #}
+                    <td>{{ object.quantite }}</td>
+                    <td>{{ object.prix }}</td>
+                </tr>
+            {% endfor %}
 
-    {# Purchase #}
-    {% for object in objects %}
-        <tr>
-            {# <td>{{ object.type }}</td> #}
-            <td>Achat</td>
-            <td>{{ object.titre }}</td>
-            <td>{{ object.id_jeu }}</td>
-            <td>{{ object.quantite }}</td>
-            <td>{{ object.prix }}</td>
-        </tr>
-    {% endfor %}
-
-    {# Rental #}
-    {% for rental_object in rentalObjects %}
-        <tr>
-            <td>Location</td>
-            <td>{{ rental_object.titre }}</td>
-            <td>{{ rental_object.id_jeu }}</td>
-            <td>{{ rental_object.quantite }}</td>
-            <td>{{ rental_object.prix }}</td>
-        </tr>
-    {% endfor %}
-  
-</tbody>
-
-</table>
-
-<a class="btn btn-success" href="{{ path('app_validate') }}">Valider le panier</a><br>
+            {# Rental #}
+            {% for rental_object in rentalObjects %}
+                <tr>
+                    <td>Location</td>
+                    <td>{{ rental_object.titre }}</td>
+                    {# <td>{{ rental_object.id_jeu }}</td> #}
+                    <td>{{ rental_object.quantite }}</td>
+                    <td>{{ rental_object.prix }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+    <a class="btn btn-success" href="{{ path('app_validate') }}">Valider le panier</a><br>
+{% else %}
+    <p class="mt-3 mb-3">Votre panier est vide !</p>
+{% endif %}
 
 {% endblock %}
