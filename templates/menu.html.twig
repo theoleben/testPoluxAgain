@@ -13,41 +13,45 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
            
-            <li class="nav-item">
+            <li class="nav-item px-3">
                 <a class="nav-link colortext" href="{{ path('app_home') }}">Accueil</a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item px-3">
+                <a class="nav-link colortext" href="{{ path('app_agence') }}">Notre agence</a>
+            </li>
+
+            <li class="nav-item px-3">
                 <a class="nav-link colortext" href="{{ path('app_display_game') }}">Nos jeux</a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item px-2">
                 <a class="nav-link colortext" href="{{ path('app_display_game') }}">Meilleurs Jeux</a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item px-3">
                 <a class="nav-link colortext" href="{{ path('app_display_subscription') }}">Abonnements</a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item px-3">
               <a class="nav-link colortext" href="{{ path('app_contact') }}">Contact</a>
           </li>
 	  
 	      
             {% if is_granted("ROLE_USER") %}
             
-                <li class="nav-item">
+                <li class="nav-item px-3">
                     <a class="nav-link colortext" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
                 </li>
 
             {% else %}
 
-                <li class="nav-item">
+                <li class="nav-item px-3">
                     <a class="nav-link colortext" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i></a>
                 </li>
 
                 
-                <li class="nav-item">
+                <li class="nav-item px-3">
                     <a class="nav-link colortext" href="{{ path('app_login') }}"><i class="fa fa-sign-in"></i></a>
                 </li>
 
@@ -79,11 +83,11 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item px-3">
                 <a class="nav-link colortext" href="{{ path('app_admin_user_index') }}">Gestion Membres</a>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown px-3">
                 <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Gestion Jeux
                 </a>
@@ -98,7 +102,7 @@
                 </div>
               </li>
 
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown px-3">
                 <a class="nav-link colortext dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Gestion Abonnements
                 </a>
