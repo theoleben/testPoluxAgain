@@ -21,21 +21,23 @@ h2{
     margin:0;
 }
 
-h2{
+h2,
+h3,
+.h1-abonnement{
     color: #1CC5DC;
 }
 
 /* PARTIE HEADER */
 
 .divSuperman{
-    background-color: #DEFCFC;
-    // height: 100px;
+    background-color: #219F94;
+    height: 80px;
     // position: absolute;
 }
 
 img{
-    height: 120px;
-    width: 120px;
+    height: 90px;
+    width: 90px;
 }
 
 #divImg{
@@ -47,12 +49,17 @@ img{
     font-family: 'Rubik Puddles', cursive;
     font-weight: bold;
     font-size: 25px;
-    color: #1CC5DC;
+    color: #3B14A7;
 }
 
 
 .colornav {
-    background-color: #98DDCA;
+    background-color: #219F94;
+}
+
+.colornav2
+{
+    background-color: #E78775;
 }
 
 .colortext, 
@@ -80,50 +87,6 @@ img{
     color: #98DDCA;
 }
 
-
-// .bordure{
-//     border: 1px solid black;
-//     // height: 200px;
-// }
-
-// .bordure2{
-//     border: 2px solid red;
-//     // height: 200px;
-// }
-
-// .bordure3{
-//     border: 2px solid hotpink;
-// }
-
-// .bordure4{
-//     border: 2px solid purple;
-// }
-
-// .bordure5{
-//     border: 2px solid red;
-// }
-
-// .bordure6{
-//     border: 2px solid orange;
-//     // width: 500px;
-// }
-
-// .bordure7{
-//     border: 2px solid blue;
-    
-// }
-
-.bordure8{
-    // border: 2px solid black;
-    height: 100px;
-    width: 100px;
-}
-
-// .bordure9{
-//     border: 2px solid green;
-// }
-
-
 /* FIN PARTIE HEADER */
 
 
@@ -138,32 +101,6 @@ img{
     color: #98DDCA;
     font-weight: bold;
 }
-
-// .border{
-//     border: 2px solid black;
-//     height: 200px;
-// }
-
-// .border1{
-//     border: 2px solid red;
-//     height: 200px;
-// }
-
-// .border2{
-//     border: 2px solid green;
-//     // height: 200px;
-// }
-
-// .border3{
-//     border: 2px solid orange;
-//     // height: 200px;
-// }
-
-// .border4{
-//     border: 2px solid blue;
-//     // height: 200px;
-// }
-
 
 /* FIN COMPOSANT NEWSLETTER */
 
@@ -189,13 +126,6 @@ img{
     background-color: #98DDCA ;
 }
 
-// .B1{
-//     border: 2px solid red;
-// }
-
-// .B2{
-//     border: 2px solid green;
-// }
 
 .divtest{
     // background-color: #DEFCFC;
@@ -206,3 +136,14 @@ img{
 }
 
 /* FIN PAGE ACCUEIL */
+
+
+.text-livraison{
+    color: #4C4C6D;
+    font-size: 16px;
+}
+
+.text-livraison-sm{
+    color: #4C4C6D;
+    font-size: 10px;
+}
