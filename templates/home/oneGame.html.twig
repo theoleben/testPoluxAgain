@@ -70,12 +70,12 @@
         </section>
     </div><br><br>
 <h2 class="text-center">Nos suggestions de jeux pour vous</h2>
-<div class=" row card-group d-flex flex-wrap justify-content-around">
+<div class=" row card-group d-flex flex-wrap justify-content-around container-fluid">
     {% for games in stock %}
         <div class="col-4 mt-4">
             <div class="card">
                 {% for picture in games.picture %}
-                <a href="{{ path('app_onegame', { id:games.id } )}}"><img class="card-img-top" src="{{ '/images/' ~ picture.name }}" height="90px" alt="Card image cap"></a> 
+                <a href="{{ path('app_onegame', { id:games.id } )}}"><img class="card-img-top" src="{{ '/images/' ~ picture.name }}" style="height:400px" alt="Card image cap"></a> 
                 {% endfor %}
                 <div class="card-body">
                     <h5 class="card-title text-center"><a href="{{ path('app_onegame', { id:games.id } )}}">{{games.title}}</a></h5>

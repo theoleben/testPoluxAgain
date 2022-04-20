@@ -98,7 +98,7 @@ class GameType extends AbstractType
                 'label' => 'Description du jeu',
                 'constraints' => [
                 new Length([
-                    'max' => 300,
+                    'max' => 2000,
                     'maxMessage' => 'Le nombre de caractères ne peut pas dépasser 300',
                 ]),
                 new NotBlank([ 'message' => 'Ce champ ne peut être vide'])
@@ -118,8 +118,8 @@ class GameType extends AbstractType
                 'help' => 'N\'oubliez pas de choisir une photo',
                 'constraints' => [
                     new File([
-                        'mimeTypes' => [ "image/jpeg", "image/png", "image/gif"],
-                        "mimeTypesMessage" => "Les formats autorisés sont gif, png, jpg",
+                        'mimeTypes' => [ "image/jpeg", "image/png", "image/gif", "image/webp"],
+                        "mimeTypesMessage" => "Les formats autorisés sont gif, png, jpg, webp",
                         'maxSize' => "2048k",
                         'maxSizeMessage' => 'Le fichier ne peut pas peser plus de 2Mo'
                     ])
