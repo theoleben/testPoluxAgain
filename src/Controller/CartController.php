@@ -61,7 +61,7 @@ class CartController extends AbstractController
             $objects[] = $object;
         }
 
-        dump($objects);
+        // dump($objects);
 
         // RENTAL
         $renting = $session->get( 'renting', [] );
@@ -70,9 +70,9 @@ class CartController extends AbstractController
 
         if( $renting )
         {
-            dump($renting);
+            // dump($renting);
 
-            dump($renting[0]);
+            // dump($renting[0]);
             // dump($renting[1]);
             // dump($renting[2]);
             // dump($renting[3]);
@@ -96,7 +96,7 @@ class CartController extends AbstractController
         // }
         // $object = [ "titre" => $titre, "id" => $id_jeu, "quantite" => $quantite, "prix" => $prix ];
 
-        dump($titre);
+        // dump($titre);
 
         // dump($object);
         
@@ -114,26 +114,26 @@ class CartController extends AbstractController
         // // $toto = [ 'test1', 'test2'];
         // // $titre = array( "testToto" => $toto, 'tata');
 
-        dump($str);
+        // dump($str);
 
         // $session->clear();
         // dd('stop');
 
         if( $str == "purchase" )
         {
-            dump("PURCHASE");
+            // dump("PURCHASE");
 
             $this->purchaseProcess( $id, $str, $session, $gameRepo );
     
-            dump($session);
+            // dump($session);
         }
         else if( $str == "renting" )
         {
-            dump("RENTING");
+            // dump("RENTING");
 
             $this->rentingProcess( $id, $session, $gameRepo );
 
-            dump( $session );
+            // dump( $session );
         }
 
         return $this->redirectToRoute('app_cart');
@@ -206,7 +206,7 @@ class CartController extends AbstractController
             $entityManager->flush();
         }
 
-        dump($session);
+        // dump($session);
 
         // Clear session
         // Renting
@@ -257,7 +257,7 @@ class CartController extends AbstractController
             $session->set( 'prix', $prix );
         }
 
-        dump($session);
+        // dump($session);
         
         // dd("stop");
 
@@ -271,7 +271,7 @@ class CartController extends AbstractController
 
         if( empty($rent) )
         {
-            dump(" renting not existing ");
+            // dump(" renting not existing ");
             $renting = [];
             $titre = [];
             $id_jeu = [];
@@ -280,7 +280,7 @@ class CartController extends AbstractController
         }
         else
         {
-            dump(" renting existing ");
+            // dump(" renting existing ");
             $renting = $session->get( 'renting' , [] );
             // dump($renting);
             $titre = $renting[0];
@@ -296,12 +296,12 @@ class CartController extends AbstractController
 
         // Get game info
         $game = $gameRepo->find( $id );
-        dump($game);
+        // dump($game);
 
         // Let's check if it's a new game
         $index = array_search( $game->getId(), $id_jeu );
 
-        dump($index);
+        // dump($index);
 
         // It's a new game
         if( !is_int($index) )
@@ -330,7 +330,7 @@ class CartController extends AbstractController
             array_push( $renting, $quantite );
             array_push( $renting, $prix );
 
-            dump( $renting );
+            // dump( $renting );
 
             $session->set( 'renting', $renting );
         }
@@ -347,7 +347,7 @@ class CartController extends AbstractController
     
         if( empty($title) )
         {
-            dump(" purchase not existing ");
+            // dump(" purchase not existing ");
             $type = [];
             $titre = [];
             $id_jeu = [];
@@ -356,7 +356,7 @@ class CartController extends AbstractController
         }
         else
         {
-            dump( " purchase existing ");
+            // dump( " purchase existing ");
             $type = $session->get( 'type' , [] );
             $titre = $session->get( 'titre' , [] );
             $id_jeu = $session->get( 'id_jeu' , [] );
@@ -366,17 +366,17 @@ class CartController extends AbstractController
 
         // Get game info
         $game = $gameRepo->find( $id );
-        dump($game);
+        // dump($game);
 
         // Let's check if it's a new game
         $index = array_search( $game->getId(), $id_jeu );
 
-        dump($index);
+        // dump($index);
 
         // It's a new game
         if( !is_int($index) )
         {
-            dump("newGame");
+            // dump("newGame");
             // Only if it's a new game
             array_push( $type, $str );
             array_push( $titre, $game->getTitle() );
@@ -393,7 +393,7 @@ class CartController extends AbstractController
         // Update quantity
         else
         {
-            dump("not a new game");
+            // dump("not a new game");
             // dump($quantite);
             // dump($quantite[$index]);
             $quantite[$index] += 1;
